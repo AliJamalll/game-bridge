@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Game Bridge</title>
+    <link>https://game-bridge.vercel.app/appcast.xml</link>
+    <item>
+      <title>Version 0.2.0</title>
+      <pubDate>Sun, 18 Oct 2026 20:25:40 GMT</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Automatic updates, and a free trial that stays put after reinstalling.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.2.0/GameBridge.dmg" sparkle:edSignature="ZrcznZB0jjAUkpOO2wMl4hjrSQeJeixxdN2neuYub5sC4mUDC0tKPwg74sk/7q5j66PiCh5bFJEQ2aBYygjhCg==" length="2788251" type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>
