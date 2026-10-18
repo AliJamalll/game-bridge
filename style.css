@@ -1,0 +1,59 @@
+:root {
+  --bg: #0b0f24;
+  --bg2: #121838;
+  --card: #161d44;
+  --text: #e9ecff;
+  --muted: #a3abd6;
+  --accent: #1bbccc;
+  --accent2: #3d5bd9;
+  --border: #263068;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, #24307a 0%, transparent 60%), var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+header.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+.brand img { width: 36px; height: 36px; }
+nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 15px; }
+nav a:hover { color: var(--text); }
+.hero { text-align: center; padding: 60px 0 40px; }
+.hero img { width: 140px; height: 140px; }
+.hero h1 { font-size: clamp(32px, 6vw, 52px); margin: 18px 0 8px; letter-spacing: -0.02em; }
+.hero p { color: var(--muted); font-size: 19px; max-width: 620px; margin: 0 auto 28px; }
+.btn { display: inline-block; padding: 13px 26px; border-radius: 12px; font-weight: 600; text-decoration: none; }
+.btn.primary { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; }
+.btn.ghost { border: 1px solid var(--border); color: var(--text); margin-left: 10px; }
+.small { color: var(--muted); font-size: 14px; margin-top: 14px; }
+section { padding: 50px 0; }
+h2 { font-size: 30px; text-align: center; margin: 0 0 30px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.price { text-align: center; }
+.price .amount { font-size: 42px; font-weight: 800; margin: 8px 0; }
+.price .amount span { font-size: 16px; color: var(--muted); font-weight: 500; }
+.price.best { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.tag { display: inline-block; background: rgba(27,188,204,.15); color: var(--accent); border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 600; }
+.price ul { list-style: none; padding: 0; margin: 16px 0 20px; color: var(--muted); font-size: 15px; }
+.price li { padding: 4px 0; }
+.faq details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq p { color: var(--muted); margin: 10px 0 0; }
+footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+footer .links a { color: var(--muted); margin-right: 16px; }
+.legal { max-width: 760px; }
+.legal h1 { font-size: 34px; margin-top: 30px; }
+.legal h2 { text-align: left; font-size: 21px; margin: 28px 0 8px; }
+.legal p, .legal li { color: #cdd2f2; }
+@media (max-width: 600px) {
+  nav a { margin-left: 12px; font-size: 14px; }
+  .btn.ghost { margin: 10px 0 0; }
+}
