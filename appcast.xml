@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.2.1</title>
+      <pubDate>Mon, 19 Oct 2026 11:37:08 GMT</pubDate>
+      <sparkle:version>3</sparkle:version>
+      <sparkle:shortVersionString>0.2.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Subscriptions are live: subscribe monthly or yearly and activate your license key in the app.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.2.1/GameBridge.dmg" sparkle:edSignature="ptuW7mWpIu4F9r7n5pjTdwawxh6149gV4VzZ7NvvEk3zFEedxuDF9ZL8jrMS6SETnIei4zyLYh1YfOuYAEOvCQ==" length="2788926" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.2.0</title>
       <pubDate>Sun, 18 Oct 2026 20:25:40 GMT</pubDate>
       <sparkle:version>2</sparkle:version>
