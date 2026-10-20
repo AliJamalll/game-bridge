@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.3.2</title>
+      <pubDate>Tue, 20 Oct 2026 18:40:19 GMT</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>0.3.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>New: Uninstall Game Bridge removes everything it installed. Setup now reuses Wine and Rosetta if they&#x27;re already on your Mac.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.3.2/GameBridge.dmg" sparkle:edSignature="AQu2bF7kRgArnqyLdyXQ7e0mTwngCkGIvnXs0DSz9ZLEZpqCtqDKO0vrjlNbx123l6+AyMHSGxPIPvW8Ti4OAg==" length="2874149" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.3.1</title>
       <pubDate>Tue, 20 Oct 2026 16:06:53 GMT</pubDate>
       <sparkle:version>6</sparkle:version>
