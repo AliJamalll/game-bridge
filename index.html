@@ -41,11 +41,16 @@
     <div class="hero bento">
       <div class="tile hero-tile s8 r2">
         <div class="reel" aria-hidden="true">
-          <video class="clip on" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="auto" autoplay></video>
-          <video class="clip" src="media/hero2.mp4" poster="media/hero2.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip on" src="media/game1.mp4" poster="media/game1.jpg" muted playsinline loop preload="auto" autoplay></video>
+          <video class="clip" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/game2.mp4" poster="media/game2.jpg" muted playsinline loop preload="none"></video>
           <video class="clip" src="media/hero4.mp4" poster="media/hero4.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/game3.mp4" poster="media/game3.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/game4.mp4" poster="media/game4.jpg" muted playsinline loop preload="none"></video>
           <video class="clip" src="media/hero5.mp4" poster="media/hero5.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/game5.mp4" poster="media/game5.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/game6.mp4" poster="media/game6.jpg" muted playsinline loop preload="none"></video>
         </div>
         <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
         <svg class="pad"><use href="#i-pad"/></svg>
@@ -188,8 +193,11 @@
   <script>
     // Hero video reel: cross-fade to the next clip every 6 seconds; only the first clip loads up front.
     (function () {
-      const clips = [...document.querySelectorAll(".reel video")];
+      let clips = [...document.querySelectorAll(".reel video")];
       if (!clips.length) return;
+      // Phones and data-saver connections cycle through fewer clips to save data.
+      const light = matchMedia("(max-width: 860px)").matches || (navigator.connection && navigator.connection.saveData);
+      if (light) { clips.slice(5).forEach(function (v) { v.remove(); }); clips = clips.slice(0, 5); }
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) { clips[0].pause(); clips[0].removeAttribute("autoplay"); return; }
       let i = 0;
       const playSafe = v => { const p = v.play(); if (p && p.catch) p.catch(function () {}); };
