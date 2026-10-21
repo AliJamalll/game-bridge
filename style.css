@@ -202,6 +202,27 @@ footer .links a:hover { color: var(--text); }
 .gallery .vtile.r2 h3 { font-size: 30px; letter-spacing: -0.02em; }
 #library .note { margin-top: 14px; }
 
+/* Trailers */
+.player { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 14px; overflow: hidden; background: #000; cursor: pointer; }
+.frame img, .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.playbtn { position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center;
+  background: linear-gradient(180deg, var(--play-a), var(--play-b)); color: #fff; box-shadow: 0 10px 40px rgba(117,176,34,.55); }
+.playbtn svg { width: 30px; height: 30px; margin-left: 4px; }
+.now { display: flex; align-items: center; gap: 12px; padding: 0 6px 4px; }
+.now b { font-size: 18px; font-weight: 800; }
+.picks { padding: 10px; display: flex; flex-direction: column; gap: 6px; max-height: 560px; overflow-y: auto; }
+.pick { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 12px; border: 1px solid transparent; background: transparent;
+  color: var(--text); text-align: left; cursor: pointer; font: inherit; }
+.pick:hover { background: rgba(255,255,255,.05); }
+.pick.on { background: rgba(102,192,244,.1); border-color: rgba(102,192,244,.35); }
+.pick:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.pick img { width: 96px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; flex: none; }
+.pick span { display: flex; flex-direction: column; min-width: 0; }
+.pick b { font-size: 14px; font-weight: 800; }
+.pick small { font-size: 11.5px; color: var(--dim); }
+#trailers .note { margin-top: 14px; }
+
 /* Legal pages */
 .legal { max-width: 780px; }
 .legal header.top { display: flex; align-items: center; padding: 24px 0; }

@@ -31,7 +31,7 @@
     <div class="wrap">
       <a class="brand" href="./"><img src="icon.png" alt=""><b>GAME BRIDGE</b></a>
       <nav>
-        <a href="#library">Games</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+        <a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
         <a class="btn play small" href="#download"><svg><use href="#i-down"/></svg>Download<span class="long">&nbsp;free</span></a>
       </nav>
     </div>
@@ -111,6 +111,26 @@
         <div class="tile vtile s4"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label brand">With friends</div><h3>Steam chat and friends list</h3></div></div>
       </div>
       <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free for 10 days.</p>
+    </section>
+
+    <section id="trailers">
+      <div class="head"><h2>Big Steam games. Watch the trailers.</h2><p>Valve removed the Mac versions of Team Fortress 2, Portal 2 and Left 4 Dead 2 in 2024. Game Bridge runs their Windows versions.</p></div>
+      <div class="bento">
+        <div class="tile player s8">
+          <div class="frame" id="tplayer" data-id="N7ZafWA2jd8"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/maxresdefault.jpg" alt="Team Fortress 2 trailer"><span class="playbtn" aria-hidden="true"><svg><use href="#i-play"/></svg></span></div>
+          <div class="now"><span class="label blue" style="margin:0">Now playing</span><b id="tnow">Team Fortress 2</b></div>
+        </div>
+        <div class="tile picks s4">
+          <button class="pick on" type="button" data-id="N7ZafWA2jd8" data-title="Team Fortress 2" aria-label="Play the Team Fortress 2 trailer"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/mqdefault.jpg" alt="" loading="lazy"><span><b>Team Fortress 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="A88YiZdXugA" data-title="Portal 2" aria-label="Play the Portal 2 trailer"><img src="https://i.ytimg.com/vi/A88YiZdXugA/mqdefault.jpg" alt="" loading="lazy"><span><b>Portal 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="N1shYxPdGB8" data-title="Left 4 Dead 2" aria-label="Play the Left 4 Dead 2 trailer"><img src="https://i.ytimg.com/vi/N1shYxPdGB8/mqdefault.jpg" alt="" loading="lazy"><span><b>Left 4 Dead 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="lTjRZ__-278" data-title="Skyrim Special Edition" aria-label="Play the Skyrim Special Edition trailer"><img src="https://i.ytimg.com/vi/lTjRZ__-278/mqdefault.jpg" alt="" loading="lazy"><span><b>Skyrim Special Edition</b><small>Bethesda</small></span></button>
+          <button class="pick" type="button" data-id="1-l29HlKkXU" data-title="The Witcher 3: Wild Hunt" aria-label="Play the The Witcher 3: Wild Hunt trailer"><img src="https://i.ytimg.com/vi/1-l29HlKkXU/mqdefault.jpg" alt="" loading="lazy"><span><b>The Witcher 3: Wild Hunt</b><small>CD PROJEKT RED</small></span></button>
+          <button class="pick" type="button" data-id="X5aJfebzkrM" data-title="Fallout 4" aria-label="Play the Fallout 4 trailer"><img src="https://i.ytimg.com/vi/X5aJfebzkrM/mqdefault.jpg" alt="" loading="lazy"><span><b>Fallout 4</b><small>Bethesda</small></span></button>
+          <button class="pick" type="button" data-id="0J4u1FD87FM" data-title="Dark Souls III" aria-label="Play the Dark Souls III trailer"><img src="https://i.ytimg.com/vi/0J4u1FD87FM/mqdefault.jpg" alt="" loading="lazy"><span><b>Dark Souls III</b><small>Bandai Namco</small></span></button>
+        </div>
+      </div>
+      <p class="note">Trailers belong to their publishers and play from YouTube. Game Bridge is not affiliated with them. Games that use anti-cheat or DirectX 12 may not run, so try your own library free for 10 days.</p>
     </section>
 
     <section id="features">
@@ -240,6 +260,35 @@
         });
       }, { rootMargin: "200px 0px" });
       tiles.forEach(function (t) { io.observe(t); });
+    })();
+    // Trailers: muted autoplay when the player scrolls into view; rotates every 30 s until the visitor picks one.
+    (function () {
+      const frame = document.getElementById("tplayer");
+      if (!frame) return;
+      const picks = [...document.querySelectorAll(".pick")];
+      const now = document.getElementById("tnow");
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let idx = 0, chosen = false, started = false, timer = null;
+      function load(i, autoplay) {
+        idx = i;
+        const b = picks[i];
+        picks.forEach(function (p) { p.classList.toggle("on", p === b); });
+        now.textContent = b.dataset.title;
+        frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.id +
+          '?autoplay=' + (autoplay ? 1 : 0) + '&mute=1&rel=0&modestbranding=1&playsinline=1" title="' + b.dataset.title +
+          ' trailer" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+        started = true;
+      }
+      picks.forEach(function (b, i) { b.addEventListener("click", function () { chosen = true; clearInterval(timer); load(i, true); }); });
+      frame.addEventListener("click", function () { if (!started) { chosen = true; load(idx, true); } });
+      if (reduce || !("IntersectionObserver" in window)) return;
+      const io = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting || started) return;
+        load(0, true);
+        timer = setInterval(function () { if (!chosen) load((idx + 1) % picks.length, true); }, 30000);
+        io.disconnect();
+      }, { threshold: 0.5 });
+      io.observe(frame);
     })();
     // Rotating headline word (static when the visitor prefers reduced motion).
     (function () {
