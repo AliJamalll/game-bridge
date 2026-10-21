@@ -6,51 +6,48 @@
   <meta name='impact-site-verification' value='bfaece7a-ef5e-4cb8-a240-a81ef011d740'>
   <title>Game Bridge — Play Steam games on your Mac</title>
   <meta name="description" content="Play your Steam games on Mac. No emulator, no virtual machine, no tech skills: install, sign in to Steam, play. 10 days free, no card required.">
+  <meta name="theme-color" content="#131920">
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- One icon set: 24px grid, 1.8 stroke, round caps. Play is the only filled glyph, as on Steam. -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
-    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></symbol>
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5zm-1.2 13.6-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4z"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7zM19 15l1 2.6 2.6 1-2.6 1L19 22l-1-2.4-2.6-1 2.6-1z"/></symbol>
-    <symbol id="i-sync" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></symbol>
-    <symbol id="i-drive" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h14l2 9v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5zm-.4 10v4h14.8v-4zm12.4 1.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></symbol>
-    <symbol id="i-trash" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3h6l1 2h4v2H4V5h4zM6 9h12l-1 12H7z"/></symbol>
-    <symbol id="i-macs" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h14v9H3zm-2 11h18v2H1zm19-9h3v11h-5v-2h2z"/></symbol>
-    <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></symbol>
-    <symbol id="i-pad" viewBox="0 0 64 40"><path fill="currentColor" d="M16 2h32c8 0 14 7 15 16l1 10c.6 6-4 11-9 10-3-.5-5-3-7-6l-2-3H18l-2 3c-2 3-4 5.5-7 6-5 1-9.6-4-9-10l1-10C2 9 8 2 16 2zm0 9v5h-5v4h5v5h4v-5h5v-4h-5v-5zm28 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-6 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.6 3 8.4 7 10 4-1.6 7-5.4 7-10V6z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></g></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></g></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h18v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 14 5.5 5h13L21 14"/><path d="M17 17h.01"/></g></symbol>
+    <symbol id="i-update" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v8m0 0-3.2-3.2m3.2 3.2 3.2-3.2"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6.5 7l1 13h9l1-13"/></g></symbol>
+    <symbol id="i-macs" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="9" rx="1.5"/><path d="M1.5 17h16M19 8h3v12h-4"/></g></symbol>
   </svg>
 
-  <div class="topbar">
+  <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="./"><img src="icon.png" alt=""><b>GAME BRIDGE</b></a>
-      <nav>
-        <a href="#how">How it works</a><a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#deals">Deals</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
-        <a class="btn play small" href="#download"><svg><use href="#i-down"/></svg>Download<span class="long">&nbsp;free</span></a>
+      <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Game Bridge</a>
+      <nav aria-label="Sections">
+        <a href="#how">How it works</a><a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#deals" class="deals-link" hidden>Deals</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
       </nav>
+      <a class="btn play small" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg><span>Download<span class="long"> free</span></span></a>
     </div>
-  </div>
+  </header>
 
-
-  <div class="invited" id="invited" hidden>
+  <div class="banner invited" id="invited" hidden>
     <div class="wrap">
-      <span class="f-badge">INVITED</span>
-      <span class="f-text"><b>A friend invited you to Game Bridge.</b> Download it, then enter code <code id="inv-code"></code> for 10 extra free days.</span>
+      <span class="b-text"><b>A friend invited you to Game Bridge.</b> Download it, then enter code <code id="inv-code"></code> for 10 extra free days.</span>
       <button class="btn ghost small" type="button" id="inv-copy">Copy code</button>
       <a class="btn play small" href="#download">Download free</a>
     </div>
   </div>
 
-  <div class="founders" id="founders" hidden>
+  <div class="banner founders" id="founders" hidden>
     <div class="wrap">
-      <span class="f-badge">FOUNDERS</span>
-      <span class="f-text"><b>The first 500 players get Game Bridge free for life.</b> No code needed: install it while seats last.</span>
+      <span class="b-text"><b>The first 500 players get Game Bridge free for life.</b> No code needed: install it while seats last.</span>
       <span class="f-meter" aria-hidden="true"><span id="f-bar"></span></span>
       <span class="f-count"><b id="f-claimed">0</b> / <span id="f-cap">500</span> claimed</span>
       <span class="f-time">Ends in <b id="f-left">–</b></span>
@@ -58,123 +55,105 @@
     </div>
   </div>
 
-  <main class="wrap">
-    <div class="hero bento">
-      <div class="tile hero-tile s8 r2">
-        <div class="reel" aria-hidden="true">
-          <video class="clip on" src="media/game1.mp4" poster="media/game1.jpg" muted playsinline loop preload="auto" autoplay></video>
-          <video class="clip" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/game2.mp4" poster="media/game2.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/hero4.mp4" poster="media/hero4.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/game3.mp4" poster="media/game3.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/game4.mp4" poster="media/game4.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/hero5.mp4" poster="media/hero5.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/game5.mp4" poster="media/game5.jpg" muted playsinline loop preload="none"></video>
-          <video class="clip" src="media/game6.mp4" poster="media/game6.jpg" muted playsinline loop preload="none"></video>
-        </div>
-        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-        <svg class="pad"><use href="#i-pad"/></svg>
-        <div class="label blue"><svg width="14" height="14"><use href="#i-play"/></svg>Steam games on Mac</div>
-        <h1>Play your Steam <span class="rotator" aria-live="polite"><span class="word">games.</span></span><br><em>On your Mac.</em></h1>
-        <p class="lead">The Windows games in your Steam library, running on your Mac. <b>Install, sign in to Steam, play.</b> That's the whole setup.</p>
-        <div class="cta">
-          <a class="btn play" href="#download"><svg><use href="#i-down"/></svg>Download free trial</a>
-          <a class="btn ghost" href="#pricing">See pricing</a>
-        </div>
-        <div class="chips">
-          <span class="chip yes">No emulator</span>
-          <span class="chip yes">No virtual machine</span>
-          <span class="chip yes">No tech skills needed</span>
-          <span class="chip">10 days free · no card</span>
-        </div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="reel" aria-hidden="true">
+      <video class="clip on" src="media/game1.mp4" poster="media/game1.jpg" muted playsinline loop preload="auto" autoplay></video>
+      <video class="clip" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/game2.mp4" poster="media/game2.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero4.mp4" poster="media/hero4.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/game3.mp4" poster="media/game3.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/game4.mp4" poster="media/game4.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero5.mp4" poster="media/hero5.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/game5.mp4" poster="media/game5.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/game6.mp4" poster="media/game6.jpg" muted playsinline loop preload="none"></video>
+    </div>
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <h1 id="hero-title">Play your Steam games on your Mac.</h1>
+      <p class="lead">The Windows games in your Steam library, running on your Mac. <b>Install, sign in to Steam, play.</b> That's the whole setup.</p>
+      <div class="cta">
+        <a class="btn play" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg>Download free trial</a>
+        <a class="btn ghost" href="#pricing">See pricing</a>
       </div>
-      <div class="tile s4">
-        <div class="ring" style="--p:100"><div><span><b>10</b><small>DAYS</small></span></div></div>
-        <div class="label brand">Free trial</div>
-        <h3>Try everything free</h3>
-        <p>No card, no account. Test your games before you pay.</p>
-      </div>
-      <div class="tile hi s4">
-        <div class="label green">Then</div>
-        <div class="big">$6<span> / month</span></div>
-        <p>or <b style="color:var(--text)">$50 / year</b> <span class="green-text">— save 30%</span></p>
-        <a class="btn brand small" style="margin-top:18px" href="#pricing">Compare plans</a>
+      <p class="facts">10 days free, no card. Then $6 a month or $50 a year.<br>No emulator · No virtual machine · No tech skills needed</p>
+    </div>
+    <div class="wrap shelf-wrap">
+      <p class="shelf-label">Big Steam games, running on Mac: <b id="shelf-name">point at one</b></p>
+      <div class="shelf">
+        <button class="cover" type="button" data-app="440" data-title="Team Fortress 2"><img src="https://cdn.akamai.steamstatic.com/steam/apps/440/library_600x900.jpg" alt="Team Fortress 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="620" data-title="Portal 2"><img src="https://cdn.akamai.steamstatic.com/steam/apps/620/library_600x900.jpg" alt="Portal 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="550" data-title="Left 4 Dead 2"><img src="https://cdn.akamai.steamstatic.com/steam/apps/550/library_600x900.jpg" alt="Left 4 Dead 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="489830" data-title="Skyrim Special Edition"><img src="https://cdn.akamai.steamstatic.com/steam/apps/489830/library_600x900.jpg" alt="Skyrim Special Edition" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="292030" data-title="The Witcher 3: Wild Hunt"><img src="https://cdn.akamai.steamstatic.com/steam/apps/292030/library_600x900.jpg" alt="The Witcher 3: Wild Hunt" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="377160" data-title="Fallout 4"><img src="https://cdn.akamai.steamstatic.com/steam/apps/377160/library_600x900.jpg" alt="Fallout 4" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="374320" data-title="Dark Souls III"><img src="https://cdn.akamai.steamstatic.com/steam/apps/374320/library_600x900.jpg" alt="Dark Souls III" width="600" height="900"></button>
       </div>
     </div>
+  </section>
 
-    <div class="window" aria-label="Game Bridge app preview">
-      <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>GAME BRIDGE</span><em>FREE TRIAL · 10 DAYS LEFT</em></div>
-      <div class="mock">
-        <div class="tile m-hero">
-          <div class="label blue">Steam</div>
-          <h4>Ready to play</h4>
-          <p>Opens Steam in its own window. Sign in with your normal Steam account.</p>
-          <span class="btn play pulse"><svg><use href="#i-play"/></svg>PLAY</span>
-          <div class="m-progress" aria-hidden="true"><span></span></div>
-        </div>
-        <div class="m-side">
-          <div class="tile"><div class="m-row"><div class="ring" style="--p:100"><div><span><b>10</b><small>DAYS</small></span></div></div><div><div class="label brand" style="margin:0 0 4px">Free trial</div><p>Then $6 / month</p></div></div></div>
-          <div class="tile"><div class="label blue" style="margin-bottom:6px">Updates</div><b style="font-size:22px">Automatic</b><p>You're asked before one installs.</p></div>
-        </div>
-      </div>
-    </div>
+  <main>
+    <figure class="wrap shot">
+      <picture>
+        <source srcset="media/app-home.webp" type="image/webp">
+        <img src="media/app-home.jpg" width="1800" height="1160" alt="The Game Bridge app: a large green Play button over game art, with installed games listed underneath.">
+      </picture>
+      <figcaption>The whole app: your games on a shelf, the one you pick fills the screen. Press Play.</figcaption>
+    </figure>
 
-
-    <section class="steps" id="how">
+    <section class="wrap" id="how">
       <div class="head"><h2>Install. Sign in. Play.</h2><p>No settings, no Terminal, nothing to learn. If you can use Steam, you can use Game Bridge.</p></div>
-      <div class="bento">
-        <div class="tile s4"><div class="num">STEP 1</div><h3>Install Game Bridge</h3><p>Drag it to Applications, open it and press Install. It sets up everything Steam needs in a few minutes.</p></div>
-        <div class="tile s4"><div class="num">STEP 2</div><h3>Sign in to Steam</h3><p>Steam opens in its own window. Sign in with your normal account, just like on a PC.</p></div>
-        <div class="tile s4"><div class="num">STEP 3</div><h3>Play your games</h3><p>Install a game from your library and press Play. That's it.</p></div>
-      </div>
+      <ol class="steps">
+        <li><h3>Install Game Bridge</h3><p>Drag it to Applications, open it and press Install. It sets up everything Steam needs in a few minutes.</p></li>
+        <li><h3>Sign in to Steam</h3><p>Steam opens in its own window. Sign in with your normal account, just like on a PC.</p></li>
+        <li><h3>Play your games</h3><p>Install a game from your library and press Play. That's it.</p></li>
+      </ol>
     </section>
 
-    <section id="full-steam">
+    <section class="wrap" id="full-steam">
       <div class="head"><h2>The full Steam. Not a cut-down version.</h2><p>It's the real Windows Steam app, so everything you use on a PC is here too.</p></div>
-      <div class="bento perks">
-        <div class="tile s4"><h3>Your whole library</h3><p>Every Windows game you own, ready to install.</p></div>
-        <div class="tile s4"><h3>The Steam store &amp; sales</h3><p>Browse, wishlist and buy new games right inside Steam.</p></div>
-        <div class="tile s4"><h3>Friends &amp; chat</h3><p>Your friends list, chat and game invites.</p></div>
-        <div class="tile s4"><h3>Cloud saves</h3><p>Pick up where you left off on your PC, in games that support it.</p></div>
-        <div class="tile s4"><h3>Achievements</h3><p>Unlock and track them like always.</p></div>
-        <div class="tile s4"><h3>Workshop &amp; mods</h3><p>Download community mods for the games that support them.</p></div>
-      </div>
+      <dl class="perks">
+        <div><dt>Your whole library</dt><dd>Every Windows game you own, ready to install.</dd></div>
+        <div><dt>The Steam store &amp; sales</dt><dd>Browse, wishlist and buy new games right inside Steam.</dd></div>
+        <div><dt>Friends &amp; chat</dt><dd>Your friends list, chat and game invites.</dd></div>
+        <div><dt>Cloud saves</dt><dd>Pick up where you left off on your PC, in games that support it.</dd></div>
+        <div><dt>Achievements</dt><dd>Unlock and track them like always.</dd></div>
+        <div><dt>Workshop &amp; mods</dt><dd>Download community mods for the games that support them.</dd></div>
+      </dl>
     </section>
 
-    <section id="library">
+    <section class="wrap" id="library">
       <div class="head"><h2>Every kind of game in your Steam library.</h2><p>Sign in once and your whole library is there: the worlds, races and battles you already own.</p></div>
-      <div class="bento gallery">
-        <div class="tile vtile s8 r2"><video class="tv" data-src="media/tile-bike.mp4" poster="media/tile-bike.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label blue">Open worlds</div><h3>Explore huge worlds on your Mac</h3><p>Big 3D games that use DirectX 11.</p></div></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-racing.mp4" poster="media/tile-racing.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label green">Racing</div><h3>Feel the speed</h3></div></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-mech.mp4" poster="media/tile-mech.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label brand">Sci-fi action</div><h3>Big battles</h3></div></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-space.mp4" poster="media/tile-space.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label blue">Space &amp; strategy</div><h3>Plan, build, conquer</h3></div></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label green">Indie &amp; retro</div><h3>Small games, big fun</h3></div></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="label brand">With friends</div><h3>Steam chat and friends list</h3></div></div>
+      <div class="gallery">
+        <figure class="vtile wide"><video class="tv" data-src="media/tile-bike.mp4" poster="media/tile-bike.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Explore huge worlds on your Mac</h3><p>Big 3D games that use DirectX 11.</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-racing.mp4" poster="media/tile-racing.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Racing</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-mech.mp4" poster="media/tile-mech.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Sci-fi action</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-space.mp4" poster="media/tile-space.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Space &amp; strategy</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Indie &amp; retro</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>With friends</h3><p>Steam chat and friends list.</p></figcaption></figure>
       </div>
       <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free for 10 days.</p>
     </section>
 
-    <section id="works" hidden>
+    <section class="wrap" id="works" hidden>
       <div class="head"><h2>Works on Game Bridge. Rated by players.</h2><p>After playing, Game Bridge players rate how each game ran. This list updates every few minutes.</p></div>
-      <div class="bento works-grid" id="works-grid"></div>
+      <div class="cards" id="works-grid"></div>
     </section>
 
-    <section id="deals" hidden>
+    <section class="wrap" id="deals" hidden>
       <div class="head"><h2>Deals on games that run on Mac.</h2><p>The lowest current price from trusted stores, for games that work with Game Bridge.</p></div>
-      <div class="bento" id="deals-grid"></div>
+      <div class="cards" id="deals-grid"></div>
       <p class="note">Prices from <a href="https://www.cheapshark.com" rel="noopener">CheapShark</a>, updated every few hours. We may earn a commission when you buy through these links, at no extra cost to you.</p>
     </section>
 
-    <section id="trailers">
+    <section class="wrap" id="trailers">
       <div class="head"><h2>Big Steam games. Watch the trailers.</h2><p>Valve removed the Mac versions of Team Fortress 2, Portal 2 and Left 4 Dead 2 in 2024. Game Bridge runs their Windows versions.</p></div>
-      <div class="bento">
-        <div class="tile player s8">
+      <div class="theater">
+        <div class="player">
           <div class="frame" id="tplayer" data-id="N7ZafWA2jd8"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/maxresdefault.jpg" alt="Team Fortress 2 trailer"><span class="playbtn" aria-hidden="true"><svg><use href="#i-play"/></svg></span></div>
-          <div class="now"><span class="label blue" style="margin:0">Now playing</span><b id="tnow">Team Fortress 2</b></div>
+          <p class="now">Now playing: <b id="tnow">Team Fortress 2</b></p>
         </div>
-        <div class="tile picks s4">
-          <div class="picks-inner">
+        <div class="picks">
           <button class="pick on" type="button" data-id="N7ZafWA2jd8" data-title="Team Fortress 2" aria-label="Play the Team Fortress 2 trailer"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/mqdefault.jpg" alt="" loading="lazy"><span><b>Team Fortress 2</b><small>Valve · Mac version removed in 2024</small></span></button>
           <button class="pick" type="button" data-id="A88YiZdXugA" data-title="Portal 2" aria-label="Play the Portal 2 trailer"><img src="https://i.ytimg.com/vi/A88YiZdXugA/mqdefault.jpg" alt="" loading="lazy"><span><b>Portal 2</b><small>Valve · Mac version removed in 2024</small></span></button>
           <button class="pick" type="button" data-id="N1shYxPdGB8" data-title="Left 4 Dead 2" aria-label="Play the Left 4 Dead 2 trailer"><img src="https://i.ytimg.com/vi/N1shYxPdGB8/mqdefault.jpg" alt="" loading="lazy"><span><b>Left 4 Dead 2</b><small>Valve · Mac version removed in 2024</small></span></button>
@@ -182,39 +161,38 @@
           <button class="pick" type="button" data-id="1-l29HlKkXU" data-title="The Witcher 3: Wild Hunt" aria-label="Play the The Witcher 3: Wild Hunt trailer"><img src="https://i.ytimg.com/vi/1-l29HlKkXU/mqdefault.jpg" alt="" loading="lazy"><span><b>The Witcher 3: Wild Hunt</b><small>CD PROJEKT RED</small></span></button>
           <button class="pick" type="button" data-id="X5aJfebzkrM" data-title="Fallout 4" aria-label="Play the Fallout 4 trailer"><img src="https://i.ytimg.com/vi/X5aJfebzkrM/mqdefault.jpg" alt="" loading="lazy"><span><b>Fallout 4</b><small>Bethesda</small></span></button>
           <button class="pick" type="button" data-id="0J4u1FD87FM" data-title="Dark Souls III" aria-label="Play the Dark Souls III trailer"><img src="https://i.ytimg.com/vi/0J4u1FD87FM/mqdefault.jpg" alt="" loading="lazy"><span><b>Dark Souls III</b><small>Bandai Namco</small></span></button>
-          </div>
         </div>
       </div>
       <p class="note">Trailers belong to their publishers and play from YouTube. Game Bridge is not affiliated with them. Games that use anti-cheat or DirectX 12 may not run, so try your own library free for 10 days.</p>
     </section>
 
-    <section id="features">
+    <section class="wrap" id="features">
       <div class="head"><h2>Made so you never have to think about it.</h2><p>Game Bridge takes care of the technical side, so all you do is play.</p></div>
-      <div class="bento">
-        <div class="tile vtile s7 r2"><video class="tv" data-src="media/tile-setup.mp4" poster="media/tile-setup.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text">
-          <div class="icon green"><svg><use href="#i-bolt"/></svg></div>
+      <div class="feature-lead">
+        <video class="tv" data-src="media/tile-setup.mp4" poster="media/tile-setup.jpg" muted playsinline loop preload="none" aria-hidden="true"></video>
+        <div>
           <h3>One-click setup</h3>
           <p>Press Install once. Game Bridge downloads and sets up everything Steam needs to run on your Mac. Anything already on your Mac is reused, not downloaded again.</p>
-          <ul class="feature-list"><li>A few hundred MB to download, only once</li><li>A progress bar for every step</li><li>No passwords, no Terminal</li></ul>
-        </div></div>
-        <div class="tile s5"><div class="icon"><svg><use href="#i-shield"/></svg></div><h3>Official Steam, from Valve</h3><p>Steam downloads straight from Valve's servers. Sign in to your own account and play what you already own.</p></div>
-        <div class="tile vtile s5"><video class="tv" data-src="media/tile-portal.mp4" poster="media/tile-portal.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="icon brand"><svg><use href="#i-spark"/></svg></div><h3>Big 3D games</h3><p>Built-in support for DirectX 9, 10 and 11 games.</p></div></div>
-        <div class="tile s4"><div class="icon"><svg><use href="#i-sync"/></svg></div><h3>Stays working</h3><p>Fixes are re-applied after every Steam update.</p></div>
-        <div class="tile vtile s4"><video class="tv" data-src="media/tile-redcity.mp4" poster="media/tile-redcity.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><div class="vt-text"><div class="icon"><svg><use href="#i-drive"/></svg></div><h3>External drives</h3><p>Install games on a plugged-in drive. Your Mac stays free.</p></div></div>
-        <div class="tile s4"><div class="icon brand"><svg><use href="#i-down"/></svg></div><h3>Automatic updates</h3><p>New versions arrive by themselves. You're asked first.</p></div>
-        <div class="tile s6"><div class="icon"><svg><use href="#i-trash"/></svg></div><h3>Clean uninstall</h3><p>One button removes everything Game Bridge added, and nothing that was there before.</p></div>
-        <div class="tile s6"><div class="icon brand"><svg><use href="#i-macs"/></svg></div><h3>2 Macs per subscription</h3><p>Use it on your laptop and your desktop. Move it to a new Mac in one click.</p></div>
+          <ul class="ticks"><li>A few hundred MB to download, only once</li><li>A progress bar for every step</li><li>No passwords, no Terminal</li></ul>
+        </div>
       </div>
+      <ul class="features">
+        <li><svg aria-hidden="true"><use href="#i-shield"/></svg><div><h3>Official Steam, from Valve</h3><p>Steam downloads straight from Valve's servers. Sign in to your own account and play what you already own.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-cube"/></svg><div><h3>Big 3D games</h3><p>Built-in support for DirectX 9, 10 and 11 games.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-sync"/></svg><div><h3>Stays working</h3><p>Fixes are re-applied after every Steam update.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-drive"/></svg><div><h3>External drives</h3><p>Install games on a plugged-in drive. Your Mac stays free.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-update"/></svg><div><h3>Automatic updates</h3><p>New versions arrive by themselves. You're asked first.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-trash"/></svg><div><h3>Clean uninstall</h3><p>One button removes everything Game Bridge added, and nothing that was there before.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-macs"/></svg><div><h3>2 Macs per subscription</h3><p>Use it on your laptop and your desktop. Move it to a new Mac in one click.</p></div></li>
+      </ul>
     </section>
 
-
-    <section id="pricing">
+    <section class="wrap" id="pricing">
       <div class="head"><h2>Simple pricing</h2><p>Start with 10 free days. Subscribe only if your games run the way you want.</p></div>
-      <div class="bento">
-        <div class="tile s6" style="background:linear-gradient(150deg,#2a1f57,#16263a)">
-          <div class="label brand">Every plan includes</div>
-          <h3>Everything, on 2 Macs</h3>
-          <ul class="feature-list">
+      <div class="pricing">
+        <div class="includes">
+          <h3>Every plan includes everything, on 2 Macs</h3>
+          <ul class="ticks">
             <li>Play the Windows Steam games you already own</li>
             <li>Steam keeps working after its updates, automatically</li>
             <li>Every Game Bridge update included</li>
@@ -223,39 +201,36 @@
           </ul>
           <p class="note">After you subscribe, your license key arrives by email. Paste it into Game Bridge to unlock it. Prices in USD; taxes may apply at checkout.</p>
         </div>
-        <div class="tile plan s3">
-          <div class="label">Monthly</div>
-          <div class="big">$6<span> / month</span></div>
+        <div class="plan">
+          <h3>Monthly</h3>
+          <div class="price">$6<span>/ month</span></div>
           <p>Billed every month</p>
-          <ul><li>Everything included</li><li>Cancel anytime</li></ul>
+          <ul class="ticks"><li>Everything included</li><li>Cancel anytime</li></ul>
           <a class="btn ghost" href="#download">Start free trial</a>
-          <p class="note" style="text-align:center"><a href="https://buy.polar.sh/polar_cl_ynXvnukoEaEQUIqNQ3CpuLeob7SaWtkUZClLr0aEEEZ">or subscribe monthly now</a></p>
+          <a class="sub" href="https://buy.polar.sh/polar_cl_ynXvnukoEaEQUIqNQ3CpuLeob7SaWtkUZClLr0aEEEZ">or subscribe monthly now</a>
         </div>
-        <div class="tile plan best s3">
-          <span class="tag">SAVE 30%</span>
-          <div class="label brand">Yearly</div>
-          <div class="big">$50<span> / year</span></div>
+        <div class="plan best">
+          <h3>Yearly <span class="tag">Save 30%</span></h3>
+          <div class="price">$50<span>/ year</span></div>
           <p>Just $4.17 a month</p>
-          <ul><li>Everything included</li><li class="save">Save $22 a year</li><li>Cancel anytime</li></ul>
-          <a class="btn brand" href="#download">Start free trial</a>
-          <p class="note" style="text-align:center"><a href="https://buy.polar.sh/polar_cl_D91KMyZfUvxdmtPjWtK6o9lNXSX5J5O2KoAuF4OmkFT">or subscribe yearly now</a></p>
+          <ul class="ticks"><li>Everything included</li><li class="save">Save $22 a year</li><li>Cancel anytime</li></ul>
+          <a class="btn sub-btn" href="#download">Start free trial</a>
+          <a class="sub" href="https://buy.polar.sh/polar_cl_D91KMyZfUvxdmtPjWtK6o9lNXSX5J5O2KoAuF4OmkFT">or subscribe yearly now</a>
         </div>
       </div>
     </section>
 
-    <section id="download">
-      <div class="tile download">
-        <div class="label green">Free for 10 days</div>
+    <section class="download" id="download">
+      <div class="wrap">
         <h2>Ready to play?</h2>
-        <p style="color:var(--dim)">No card required. Open the DMG and drag Game Bridge to Applications.</p>
-        <a class="btn play" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg><use href="#i-down"/></svg>Download for Mac (.dmg)</a>
+        <p>Free for 10 days, no card required. Open the DMG and drag Game Bridge to Applications.</p>
+        <a class="btn play big" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg aria-hidden="true"><use href="#i-down"/></svg>Download for Mac (.dmg)</a>
+        <p class="reqs">Version 0.4.0 (beta) · macOS 13 or later · Apple Silicon (M1 to M5) &amp; Intel · Signed &amp; notarized by Apple · About 1 GB free space for Steam</p>
         <p class="note">By downloading you agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
-        <p class="note">Version 0.4.0 (beta) · includes a 10-day free trial</p>
-        <div class="reqs"><span class="chip">macOS 13 or later</span><span class="chip">Apple Silicon (M1 to M5) &amp; Intel</span><span class="chip">Signed &amp; notarized by Apple</span><span class="chip">About 1 GB free space for Steam</span></div>
       </div>
     </section>
 
-    <section id="faq">
+    <section class="wrap" id="faq">
       <div class="head"><h2>Questions</h2></div>
       <div class="faq">
         <details><summary>Is it an emulator or a virtual machine?</summary><p>Neither. Game Bridge uses Wine, a compatibility layer that lets Windows apps run directly on macOS, plus DirectX support for games. There's no copy of Windows to install or pay for.</p></details>
@@ -267,13 +242,13 @@
         <details><summary>How do I cancel or uninstall?</summary><p>Cancel from the link in your receipt email at any time. To remove the app, use Game Bridge → Uninstall Game Bridge. It removes only what Game Bridge installed.</p></details>
       </div>
     </section>
-
-    <footer>
-      <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
-      <p>Background videos from Pexels.</p>
-      <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Game Bridge is not affiliated with Valve. macOS is a trademark of Apple Inc.</p>
-    </footer>
   </main>
+
+  <footer class="wrap">
+    <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
+    <p>Background videos from Pexels.</p>
+    <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Game Bridge is not affiliated with Valve. macOS is a trademark of Apple Inc.</p>
+  </footer>
   <script>
     // Hero video reel: cross-fade to the next clip every 6 seconds; only the first clip loads up front.
     (function () {
@@ -294,6 +269,31 @@
         i = (i + 1) % clips.length;
         clips[(i + 1) % clips.length].preload = "auto";
       }, 6000);
+    })();
+    // Hero shelf: pointing at a cover brings that game's art behind the headline (like the app);
+    // clicking one plays its trailer further down.
+    (function () {
+      const art = document.querySelector(".hero-art"), name = document.getElementById("shelf-name");
+      const covers = [...document.querySelectorAll(".cover")];
+      let warm = false;
+      // The wide art is large: start fetching all of it as soon as the pointer reaches the shelf.
+      document.querySelector(".shelf").addEventListener("pointerenter", function () {
+        if (warm) return; warm = true;
+        covers.forEach(function (c) { new Image().src = "https://cdn.akamai.steamstatic.com/steam/apps/" + c.dataset.app + "/library_hero.jpg"; });
+      });
+      covers.forEach(function (c) {
+        function show() {
+          art.style.backgroundImage = "url(https://cdn.akamai.steamstatic.com/steam/apps/" + c.dataset.app + "/library_hero.jpg)";
+          art.classList.add("on"); name.textContent = c.dataset.title;
+          covers.forEach(function (o) { o.classList.toggle("on", o === c); });
+        }
+        c.addEventListener("mouseenter", show); c.addEventListener("focus", show);
+        c.addEventListener("click", function () {
+          const pick = document.querySelector('.pick[data-title="' + c.dataset.title + '"]');
+          document.getElementById("trailers").scrollIntoView();
+          if (pick) pick.click();
+        });
+      });
     })();
     // Video tiles: load when scrolled near, play only while visible.
     (function () {
@@ -379,7 +379,7 @@
         const grid = document.getElementById("deals-grid");
         deals.forEach(function (g) {
           const a = document.createElement("a");
-          a.className = "tile work deal s3"; a.href = g.link; a.target = "_blank"; a.rel = "noopener sponsored";
+          a.className = "card deal"; a.href = g.link; a.target = "_blank"; a.rel = "noopener sponsored";
           const img = document.createElement("img"); img.alt = ""; img.loading = "lazy";
           img.src = "https://cdn.akamai.steamstatic.com/steam/apps/" + encodeURIComponent(g.appid) + "/header.jpg";
           const h = document.createElement("h3"); h.textContent = g.title;
@@ -388,6 +388,7 @@
           a.append(img, h, p); grid.append(a);
         });
         document.getElementById("deals").hidden = false;
+        document.querySelector(".deals-link").hidden = false;
       }).catch(function () {});
     })();
     // Player ratings from the app: shown only once there are real votes.
@@ -399,7 +400,7 @@
         games.forEach(function (g) {
           const total = g.up + g.down, pct = Math.round(g.up / total * 100);
           const el = document.createElement("div");
-          el.className = "tile work s3";
+          el.className = "card";
           const img = document.createElement("img");
           img.src = "https://cdn.akamai.steamstatic.com/steam/apps/" + encodeURIComponent(g.appid) + "/header.jpg";
           img.alt = ""; img.loading = "lazy";
@@ -411,21 +412,6 @@
         });
         document.getElementById("works").hidden = false;
       }).catch(function () {});
-    })();
-    // Rotating headline word (static when the visitor prefers reduced motion).
-    (function () {
-      const words = ["games.", "RPGs.", "racing games.", "strategy games.", "indie hits.", "library."];
-      const el = document.querySelector(".rotator .word");
-      if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      let i = 0;
-      setInterval(function () {
-        el.classList.add("out");
-        setTimeout(function () {
-          i = (i + 1) % words.length;
-          el.textContent = words[i];
-          el.classList.remove("out");
-        }, 380);
-      }, 2600);
     })();
   </script>
 </body>
