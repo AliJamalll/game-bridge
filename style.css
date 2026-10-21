@@ -80,7 +80,7 @@ nav a:hover { color: var(--text); }
 .hero-tile { padding: 44px; background:
   radial-gradient(600px 400px at 100% 100%, rgba(155, 92, 246, 0.22), transparent 60%),
   linear-gradient(135deg, #1b3a57, #16263a 55%, #1e1b3a); }
-.hero-tile h1 { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.02; margin: 0 0 16px; letter-spacing: -0.035em; font-weight: 900; }
+.hero-tile h1 { text-shadow: 0 2px 24px rgba(0,0,0,.45); font-size: clamp(38px, 5.4vw, 62px); line-height: 1.02; margin: 0 0 16px; letter-spacing: -0.035em; font-weight: 900; }
 .hero-tile h1 em { font-style: normal; background: linear-gradient(135deg, var(--blue), var(--brand-b)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-tile .lead { font-size: 18px; color: #b9c3cc; max-width: 560px; margin: 0 0 26px; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -152,6 +152,42 @@ footer { margin-top: 64px; border-top: 1px solid var(--stroke); padding: 30px 0 
 footer .links { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
 footer .links a { color: var(--dim); text-decoration: none; font-weight: 700; }
 footer .links a:hover { color: var(--text); }
+
+/* Motion: animated hero background, rotating headline word, live app preview */
+.hero-tile > *:not(.aurora):not(.pad):not(.reel) { position: relative; z-index: 2; }
+.reel { position: absolute; inset: 0; z-index: 0; background: #0e141b; }
+.reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+.reel video.on { opacity: 1; }
+.reel::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(14,20,27,.88) 0%, rgba(14,20,27,.55) 48%, rgba(22,38,58,.05) 100%),
+              linear-gradient(0deg, rgba(14,20,27,.75), transparent 40%); }
+.hero-tile .aurora { z-index: 1; mix-blend-mode: screen; opacity: .4; }
+.hero-tile .pad { z-index: 1; }
+.aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.aurora i { position: absolute; width: 60%; aspect-ratio: 1; border-radius: 50%; filter: blur(60px); opacity: 0.55; }
+.aurora i:nth-child(1) { background: #1a9fff; left: -15%; top: -30%; animation: drift1 16s ease-in-out infinite alternate; }
+.aurora i:nth-child(2) { background: #9b5cf6; right: -20%; bottom: -40%; animation: drift2 19s ease-in-out infinite alternate; }
+.aurora i:nth-child(3) { background: #75b022; left: 30%; bottom: -55%; width: 40%; opacity: 0.25; animation: drift3 22s ease-in-out infinite alternate; }
+@keyframes drift1 { to { transform: translate(35%, 25%) scale(1.15); } }
+@keyframes drift2 { to { transform: translate(-30%, -20%) scale(0.9); } }
+@keyframes drift3 { to { transform: translate(-40%, -15%) scale(1.3); } }
+.rotator { display: inline-block; }
+.rotator .word { display: inline-block; background: linear-gradient(135deg, #fff, #cfe8ff); -webkit-background-clip: text; background-clip: text; color: transparent;
+  transition: transform .38s ease, opacity .38s ease, filter .38s ease; }
+.rotator .word.out { transform: translateY(-0.35em); opacity: 0; filter: blur(4px); }
+.pulse { animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 10px 30px rgba(117,176,34,.35); } 50% { box-shadow: 0 10px 46px rgba(117,176,34,.75), 0 0 0 6px rgba(117,176,34,.15); } }
+.m-progress { height: 6px; border-radius: 99px; background: rgba(255,255,255,.08); margin-top: 14px; overflow: hidden; max-width: 320px; }
+.m-progress span { display: block; height: 100%; width: 40%; border-radius: 99px; background: linear-gradient(90deg, #66c0f4, #9b5cf6); animation: load 2.8s ease-in-out infinite; }
+@keyframes load { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+.mock .m-hero .btn { margin-top: auto; }
+.window { animation: rise .9s cubic-bezier(.2,.8,.2,1) both .15s; }
+@keyframes rise { from { transform: translateY(18px); opacity: .5; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .aurora i, .pulse, .m-progress span, .window { animation: none !important; }
+  .reel video { transition: none; }
+  .window { opacity: 1; }
+}
 
 /* Legal pages */
 .legal { max-width: 780px; }

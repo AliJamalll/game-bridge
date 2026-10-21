@@ -40,9 +40,17 @@
   <main class="wrap">
     <div class="hero bento">
       <div class="tile hero-tile s8 r2">
+        <div class="reel" aria-hidden="true">
+          <video class="clip on" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="auto" autoplay></video>
+          <video class="clip" src="media/hero2.mp4" poster="media/hero2.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/hero4.mp4" poster="media/hero4.jpg" muted playsinline loop preload="none"></video>
+          <video class="clip" src="media/hero5.mp4" poster="media/hero5.jpg" muted playsinline loop preload="none"></video>
+        </div>
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
         <svg class="pad"><use href="#i-pad"/></svg>
         <div class="label blue"><svg width="14" height="14"><use href="#i-play"/></svg>Steam on Mac</div>
-        <h1>Your Windows Steam games. <em>On your Mac.</em></h1>
+        <h1>Your Windows Steam <span class="rotator" aria-live="polite"><span class="word">games.</span></span><br><em>On your Mac.</em></h1>
         <p class="lead">Game Bridge installs and runs the official Windows Steam app on macOS in one click. No virtual machine, no Terminal, nothing to configure.</p>
         <div class="cta">
           <a class="btn play" href="#download"><svg><use href="#i-down"/></svg>Download free trial</a>
@@ -76,7 +84,8 @@
           <div class="label blue">Steam</div>
           <h4>Ready to play</h4>
           <p>Opens Steam in its own window. Sign in with your normal Steam account.</p>
-          <span class="btn play"><svg><use href="#i-play"/></svg>PLAY</span>
+          <span class="btn play pulse"><svg><use href="#i-play"/></svg>PLAY</span>
+          <div class="m-progress" aria-hidden="true"><span></span></div>
         </div>
         <div class="m-side">
           <div class="tile"><div class="m-row"><div class="ring" style="--p:100"><div><span><b>10</b><small>DAYS</small></span></div></div><div><div class="label brand" style="margin:0 0 4px">Free trial</div><p>Then $6 / month</p></div></div></div>
@@ -172,8 +181,43 @@
 
     <footer>
       <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
+      <p>Background videos from Pexels.</p>
       <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Game Bridge is not affiliated with Valve. macOS is a trademark of Apple Inc.</p>
     </footer>
   </main>
+  <script>
+    // Hero video reel: cross-fade to the next clip every 6 seconds; only the first clip loads up front.
+    (function () {
+      const clips = [...document.querySelectorAll(".reel video")];
+      if (!clips.length) return;
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) { clips[0].pause(); clips[0].removeAttribute("autoplay"); return; }
+      let i = 0;
+      const playSafe = v => { const p = v.play(); if (p && p.catch) p.catch(function () {}); };
+      playSafe(clips[0]);
+      setInterval(function () {
+        const cur = clips[i], next = clips[(i + 1) % clips.length];
+        next.preload = "auto"; next.currentTime = 0; playSafe(next);
+        next.classList.add("on"); cur.classList.remove("on");
+        setTimeout(function () { cur.pause(); }, 1200);
+        i = (i + 1) % clips.length;
+        clips[(i + 1) % clips.length].preload = "auto";
+      }, 6000);
+    })();
+    // Rotating headline word (static when the visitor prefers reduced motion).
+    (function () {
+      const words = ["games.", "RPGs.", "racing games.", "strategy games.", "indie hits.", "library."];
+      const el = document.querySelector(".rotator .word");
+      if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      let i = 0;
+      setInterval(function () {
+        el.classList.add("out");
+        setTimeout(function () {
+          i = (i + 1) % words.length;
+          el.textContent = words[i];
+          el.classList.remove("out");
+        }, 380);
+      }, 2600);
+    })();
+  </script>
 </body>
 </html>
