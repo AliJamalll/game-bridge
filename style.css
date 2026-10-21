@@ -203,7 +203,7 @@ footer .links a:hover { color: var(--text); }
 #library .note { margin-top: 14px; }
 
 /* Trailers */
-.player { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.player { padding: 14px; display: flex; flex-direction: column; gap: 12px; align-self: start; }
 .frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 14px; overflow: hidden; background: #000; cursor: pointer; }
 .frame img, .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
 .playbtn { position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center;
@@ -211,7 +211,9 @@ footer .links a:hover { color: var(--text); }
 .playbtn svg { width: 30px; height: 30px; margin-left: 4px; }
 .now { display: flex; align-items: center; gap: 12px; padding: 0 6px 4px; }
 .now b { font-size: 18px; font-weight: 800; }
-.picks { padding: 10px; display: flex; flex-direction: column; gap: 6px; max-height: 560px; overflow-y: auto; }
+.picks { padding: 0; position: relative; min-height: 320px; }
+.picks-inner { position: absolute; inset: 10px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+@media (max-width: 860px) { .picks { min-height: 0; } .picks-inner { position: static; padding: 10px; } }
 .pick { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 12px; border: 1px solid transparent; background: transparent;
   color: var(--text); text-align: left; cursor: pointer; font: inherit; }
 .pick:hover { background: rgba(255,255,255,.05); }
