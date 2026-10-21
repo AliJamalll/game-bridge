@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Game Bridge — Dashboard</title>
+  <link rel="icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dash { padding: 32px 0 60px; display: grid; gap: 18px; }
+    .bar { height: 10px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 6px; }
+    .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--brand-b)); }
+    .row { display: grid; grid-template-columns: 180px 1fr 60px; gap: 12px; align-items: center; font-size: 14px; padding: 6px 0; }
+    .row b { text-align: right; font-variant-numeric: tabular-nums; }
+    .kpi { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; }
+    .fb { border-top: 1px solid var(--stroke); padding: 12px 0; font-size: 14px; }
+    .fb small { color: var(--dim); }
+    .fb pre { white-space: pre-wrap; color: #c3ccd5; font: 13px/1.5 ui-monospace, Menlo, monospace; margin: 8px 0 0; max-height: 160px; overflow: auto; background: rgba(0,0,0,.25); padding: 8px; border-radius: 8px; }
+    #data { display: grid; gap: 18px; } [hidden] { display: none !important; }
+    #login input { height: 46px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,.25); color: var(--text); padding: 0 14px; font: inherit; width: min(420px, 100%); }
+    @media (max-width: 600px) { .row { grid-template-columns: 1fr 50px; } .row .bar { grid-column: 1 / -1; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><a class="brand" href="./"><img src="icon.png" alt=""><b>GAME BRIDGE</b></a><nav><a href="#" id="logout" hidden>Sign out</a></nav></div></div>
+  <main class="wrap dash">
+    <div class="tile" id="login">
+      <div class="label blue">Owner dashboard</div>
+      <h3>Enter your admin key</h3>
+      <p>It's in the file "GameBridge-Admin.txt" on your Mac's Desktop. This browser remembers it.</p>
+      <form id="lf" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <input id="tk" type="password" autocomplete="off" placeholder="Admin key">
+        <button class="btn play small" type="submit">Open dashboard</button>
+      </form>
+      <p id="err" style="color:var(--warn);margin-top:10px"></p>
+    </div>
+    <div id="data" hidden>
+      <div class="bento">
+        <div class="tile s3"><div class="label">Founders</div><div class="kpi" id="k-f">0</div><p>of 500 seats</p></div>
+        <div class="tile s3"><div class="label">Product-market fit</div><div class="kpi" id="k-pmf">–</div><p id="k-pmf-n">"Very disappointed" (goal: 40%+)</p></div>
+        <div class="tile s3"><div class="label">Game ratings</div><div class="kpi" id="k-r">0</div><p>votes from players</p></div>
+        <div class="tile s3"><div class="label">Invited friends</div><div class="kpi" id="k-i">0</div><p>joined with a code</p></div>
+      </div>
+      <div class="tile"><div class="label blue">Funnel · Macs in the last <span id="days">30</span> days</div><div id="funnel"></div></div>
+      <div class="tile"><div class="label brand">Survey notes</div><div id="notes"><p>No answers yet.</p></div></div>
+      <div class="tile"><div class="label green">Latest feedback</div><div id="fb"><p>No feedback yet.</p></div></div>
+    </div>
+  </main>
+  <script>
+    const labels = { app_open: "Opened the app", setup_start: "Started setup", setup_done: "Finished setup", setup_fail: "Setup failed",
+      steam_launch: "Opened Steam", game_launch: "Played a game", paywall_view: "Saw the paywall", plan_monthly: "Clicked Monthly",
+      plan_yearly: "Clicked Yearly", license_activated: "Activated a license", invite_copied: "Copied an invite",
+      invite_redeemed: "Used an invite", rating_sent: "Rated a game", feedback_sent: "Sent feedback", uninstall: "Uninstalled" };
+    const $ = id => document.getElementById(id);
+    function esc(s) { const d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+    function getKey() { try { return localStorage.getItem("gb-admin") || ""; } catch (e) { return ""; } }
+    function setKey(k) { try { k ? localStorage.setItem("gb-admin", k) : localStorage.removeItem("gb-admin"); } catch (e) {} }
+    async function load(key) {
+      const r = await fetch("/api/admin?token=" + encodeURIComponent(key));
+      if (r.status === 401) { $("err").textContent = "That key isn't right."; setKey(""); return; }
+      if (!r.ok) { $("err").textContent = "The dashboard is unavailable right now. Try again in a minute."; return; }
+      const d = await r.json(); setKey(key);
+      $("login").hidden = true; $("data").hidden = false; $("logout").hidden = false;
+      $("days").textContent = d.days; $("k-f").textContent = d.totals.founders; $("k-r").textContent = d.totals.ratings; $("k-i").textContent = d.totals.invitedFriends;
+      const s = d.survey, total = s.very + s.somewhat + s.not;
+      $("k-pmf").textContent = total ? Math.round(s.very / total * 100) + "%" : "–";
+      $("k-pmf-n").textContent = total + " answers · \"very disappointed\" (goal: 40%+)";
+      const max = Math.max(1, ...Object.values(d.uniques));
+      $("funnel").innerHTML = Object.keys(labels).map(k => `<div class="row"><span>${labels[k]}</span><div class="bar"><span style="width:${d.uniques[k] / max * 100}%"></span></div><b>${d.uniques[k]}</b></div>`).join("");
+      if (s.notes.length) $("notes").innerHTML = s.notes.map(n => `<div class="fb"><small>${esc(n.at.slice(0, 10))} · ${esc(n.answer)}</small><div>${esc(n.text)}</div></div>`).join("");
+      if (d.feedback.length) $("fb").innerHTML = d.feedback.map(f => `<div class="fb"><small>${esc(f.at.slice(0, 16).replace("T", " "))} · v${esc(f.version)} · ${esc(f.macos)}${f.email ? " · " + esc(f.email) : ""}</small><div>${esc(f.text)}</div>${f.log ? `<pre>${esc(f.log)}</pre>` : ""}</div>`).join("");
+    }
+    $("lf").addEventListener("submit", e => { e.preventDefault(); $("err").textContent = ""; load($("tk").value.trim()); });
+    $("logout").addEventListener("click", e => { e.preventDefault(); setKey(""); location.reload(); });
+    if (getKey()) load(getKey());
+  </script>
+</body>
+</html>
