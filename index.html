@@ -251,6 +251,7 @@
         <h2>Ready to play?</h2>
         <p>Free for 10 days, no card required. Open the DMG and drag Game Bridge to Applications.</p>
         <a class="btn play big" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg aria-hidden="true"><use href="#i-down"/></svg>Download for Mac (.dmg)</a>
+        <p class="mac-only">On your phone? Game Bridge runs on a Mac, so open this page on your Mac to install it.</p>
         <p class="reqs">Version 0.4.0 (beta) · macOS 13 or later · Apple Silicon (M1 to M5) &amp; Intel · Signed &amp; notarized by Apple · About 1 GB free space for Steam</p>
         <p class="note">By downloading you agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
       </div>
@@ -322,6 +323,9 @@
         if (warm) return; warm = true;
         covers.forEach(function (c) { new Image().src = "https://cdn.akamai.steamstatic.com/steam/apps/" + c.dataset.app + "/library_hero.jpg"; });
       });
+      // Touch screens can't point, so the first tap shows a game and a second tap opens its trailer.
+      const touch = matchMedia("(hover: none)").matches;
+      if (touch) name.textContent = "tap one";
       covers.forEach(function (c) {
         function show() {
           art.style.backgroundImage = "url(https://cdn.akamai.steamstatic.com/steam/apps/" + c.dataset.app + "/library_hero.jpg)";
@@ -330,6 +334,7 @@
         }
         c.addEventListener("mouseenter", show); c.addEventListener("focus", show);
         c.addEventListener("click", function () {
+          if (touch && !c.dataset.seen) { covers.forEach(function (o) { delete o.dataset.seen; }); c.dataset.seen = "1"; show(); return; }
           const pick = document.querySelector('.pick[data-title="' + c.dataset.title + '"]');
           if (!pick) return;
           document.getElementById("trailers").scrollIntoView();
