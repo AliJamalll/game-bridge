@@ -37,6 +37,18 @@
     </div>
   </div>
 
+
+  <div class="founders" id="founders" hidden>
+    <div class="wrap">
+      <span class="f-badge">FOUNDERS</span>
+      <span class="f-text"><b>The first 500 players get Game Bridge free for life.</b> No code needed: install it while seats last.</span>
+      <span class="f-meter" aria-hidden="true"><span id="f-bar"></span></span>
+      <span class="f-count"><b id="f-claimed">0</b> / <span id="f-cap">500</span> claimed</span>
+      <span class="f-time">Ends in <b id="f-left">–</b></span>
+      <a class="btn play small" href="#download">Claim a seat</a>
+    </div>
+  </div>
+
   <main class="wrap">
     <div class="hero bento">
       <div class="tile hero-tile s8 r2">
@@ -310,6 +322,26 @@
         io.disconnect();
       }, { threshold: 0.5 });
       io.observe(frame);
+    })();
+    // Founders offer: real seats from the server and a real deadline; hidden once it's over.
+    (function () {
+      const box = document.getElementById("founders");
+      fetch("/api/founders").then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        if (!d || !d.open) return;
+        const ends = Date.parse(d.endsAt);
+        document.getElementById("f-claimed").textContent = d.claimed.toLocaleString();
+        document.getElementById("f-cap").textContent = d.cap.toLocaleString();
+        document.getElementById("f-bar").style.width = Math.max(2, d.claimed / d.cap * 100) + "%";
+        const left = document.getElementById("f-left");
+        function tick() {
+          const ms = ends - Date.now();
+          if (ms <= 0) { box.hidden = true; return; }
+          const dd = Math.floor(ms / 864e5), hh = Math.floor(ms / 36e5) % 24, mm = Math.floor(ms / 6e4) % 60, ss = Math.floor(ms / 1e3) % 60;
+          left.textContent = dd + "d " + hh + "h " + String(mm).padStart(2, "0") + "m " + String(ss).padStart(2, "0") + "s";
+        }
+        tick(); setInterval(tick, 1000);
+        box.hidden = false;
+      }).catch(function () {});
     })();
     // Player ratings from the app: shown only once there are real votes.
     (function () {

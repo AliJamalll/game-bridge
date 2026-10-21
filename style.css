@@ -236,6 +236,19 @@ footer .links a:hover { color: var(--text); }
 .work h3 { font-size: 15px; margin-bottom: 2px; }
 .work p { font-size: 13px; }
 
+/* Founders banner */
+.founders { background: linear-gradient(90deg, rgba(79,124,255,.18), rgba(155,92,246,.22)); border-bottom: 1px solid rgba(155,92,246,.35); }
+.founders .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 10px; font-size: 14px; }
+.f-badge { font-size: 11px; font-weight: 900; letter-spacing: .12em; padding: 4px 10px; border-radius: 999px; color: #fff;
+  background: linear-gradient(135deg, var(--brand-a), var(--brand-b)); }
+.f-text { color: #cfd8e0; flex: 1 1 320px; min-width: 0; }
+.f-text b { color: var(--text); }
+.f-meter { width: 120px; height: 6px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.f-meter span { display: block; height: 100%; background: linear-gradient(90deg, var(--play-a), #a4d007); }
+.f-count, .f-time { color: var(--dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.f-count b, .f-time b { color: var(--text); }
+.founders .btn.small { height: 34px; }
+
 /* Legal pages */
 .legal { max-width: 780px; }
 .legal header.top { display: flex; align-items: center; padding: 24px 0; }
