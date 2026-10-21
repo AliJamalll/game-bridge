@@ -5,6 +5,7 @@
 // key in FOUNDERS_SIGNING_KEY) lets the app trust a seat offline without anyone being able to forge one.
 import { list, put, head } from '@vercel/blob';
 import { createPrivateKey, sign } from 'node:crypto';
+import { client, overLimit } from './_security.js';
 
 const CAP = 500;
 const ENDS_AT = Date.parse('2026-12-05T21:59:59Z');   // December 5, 23:59 Cairo time
@@ -40,7 +41,9 @@ export default async function handler(req, res) {
 
     if (await isFounder(device)) return res.status(200).json({ ...base, founder: true, signature: signature(device) });
     if (!open) return res.status(200).json({ ...base, founder: false });
-    await put(`founders/${device}`, '1', { access: 'private', addRandomSuffix: false, allowOverwrite: false, contentType: 'text/plain' })
+    const who = client(req);
+    if (await overLimit('founders', who.ipHash, 5, device)) return res.status(200).json({ ...base, founder: false, limited: true });
+    await put(`founders/${device}`, JSON.stringify({ at: new Date().toISOString(), ...who }), { access: 'private', addRandomSuffix: false, allowOverwrite: false, contentType: 'text/plain' })
       .catch(() => {});   // already claimed by a parallel request: fine
     return res.status(200).json({ ...base, claimed: Math.min(claimed + 1, CAP), open: claimed + 1 < CAP && Date.now() < ENDS_AT,
                                   founder: true, signature: signature(device) });

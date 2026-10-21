@@ -3,6 +3,7 @@
 // POST { action: "redeem", device, code }         -> { ok, bonusDays } or { error }
 import { put, list, get } from '@vercel/blob';
 import { inviteCode, exists, bonusDays, signBonus, MAX_FRIENDS, INVITED_BONUS } from './_bonus.js';
+import { client, overLimit } from './_security.js';
 
 const DEVICE = /^[0-9a-f]{64}$/;
 const CODE = /^[2-9A-HJKMNP-Z]{8}$/;
@@ -37,7 +38,9 @@ export default async function handler(req, res) {
           return res.status(200).json({ error: 'Invite codes are for new players.' });
         }
       }
-      await put(`invites/redeemed/${device}`, code, opts);
+      const who = client(req);
+      if (await overLimit('invites', who.ipHash, 3, device)) return res.status(200).json({ error: 'Too many invite codes were used on this network.' });
+      await put(`invites/redeemed/${device}`, JSON.stringify({ code, at: new Date().toISOString(), ...who }), opts);
       await put(`invites/by/${referrer}/${device}`, '1', opts);
       const b = await bonusDays(device);
       return res.status(200).json({ ok: true, added: INVITED_BONUS, bonusDays: b.days, bonusSig: signBonus(device, b.days) });
