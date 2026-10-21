@@ -5,77 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='impact-site-verification' value='bfaece7a-ef5e-4cb8-a240-a81ef011d740'>
   <title>Game Bridge — Play your Windows Steam library on Mac</title>
-  <meta name="description" content="Game Bridge installs and runs the Windows version of Steam on your Mac in one click. 10-day free trial.">
+  <meta name="description" content="Game Bridge installs and runs the Windows version of Steam on your Mac in one click. 10-day free trial, no card required.">
   <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header class="top">
-      <a class="brand" href="./"><img src="icon.png" alt="">Game Bridge</a>
-      <nav><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
-    </header>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5zm-1.2 13.6-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7zM19 15l1 2.6 2.6 1-2.6 1L19 22l-1-2.4-2.6-1 2.6-1z"/></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h14l2 9v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5zm-.4 10v4h14.8v-4zm12.4 1.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3h6l1 2h4v2H4V5h4zM6 9h12l-1 12H7z"/></symbol>
+    <symbol id="i-macs" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h14v9H3zm-2 11h18v2H1zm19-9h3v11h-5v-2h2z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></symbol>
+    <symbol id="i-pad" viewBox="0 0 64 40"><path fill="currentColor" d="M16 2h32c8 0 14 7 15 16l1 10c.6 6-4 11-9 10-3-.5-5-3-7-6l-2-3H18l-2 3c-2 3-4 5.5-7 6-5 1-9.6-4-9-10l1-10C2 9 8 2 16 2zm0 9v5h-5v4h5v5h4v-5h5v-4h-5v-5zm28 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-6 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></symbol>
+  </svg>
 
-    <div class="hero">
-      <img src="icon.png" alt="Game Bridge icon">
-      <h1>Your Windows games, on your Mac.</h1>
-      <p>Game Bridge sets up and runs the Windows version of the Steam client on macOS in one click — no virtual machine, no Terminal, no configuration.</p>
-      <a class="btn primary" href="#download">Download free trial</a>
-      <a class="btn ghost" href="#pricing">See pricing</a>
-      <div class="small">10 days free · macOS 13 or later · Apple Silicon &amp; Intel</div>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="icon.png" alt=""><b>GAME BRIDGE</b></a>
+      <nav>
+        <a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+        <a class="btn play small" href="#download"><svg><use href="#i-down"/></svg>Download<span class="long">&nbsp;free</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="hero bento">
+      <div class="tile hero-tile s8 r2">
+        <svg class="pad"><use href="#i-pad"/></svg>
+        <div class="label blue"><svg width="14" height="14"><use href="#i-play"/></svg>Steam on Mac</div>
+        <h1>Your Windows Steam games. <em>On your Mac.</em></h1>
+        <p class="lead">Game Bridge installs and runs the official Windows Steam app on macOS in one click. No virtual machine, no Terminal, nothing to configure.</p>
+        <div class="cta">
+          <a class="btn play" href="#download"><svg><use href="#i-down"/></svg>Download free trial</a>
+          <a class="btn ghost" href="#pricing">See pricing</a>
+        </div>
+        <div class="chips">
+          <span class="chip">10 days free · no card</span>
+          <span class="chip">macOS 13 or later</span>
+          <span class="chip">Apple Silicon &amp; Intel</span>
+          <span class="chip">Signed &amp; notarized by Apple</span>
+        </div>
+      </div>
+      <div class="tile s4">
+        <div class="ring" style="--p:100"><div><span><b>10</b><small>DAYS</small></span></div></div>
+        <div class="label brand">Free trial</div>
+        <h3>Try everything free</h3>
+        <p>No card, no account. Test your games before you pay.</p>
+      </div>
+      <div class="tile hi s4">
+        <div class="label green">Then</div>
+        <div class="big">$6<span> / month</span></div>
+        <p>or <b style="color:var(--text)">$50 / year</b> <span class="green-text">— save 30%</span></p>
+        <a class="btn brand small" style="margin-top:18px" href="#pricing">Compare plans</a>
+      </div>
+    </div>
+
+    <div class="window" aria-label="Game Bridge app preview">
+      <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>GAME BRIDGE</span><em>FREE TRIAL · 10 DAYS LEFT</em></div>
+      <div class="mock">
+        <div class="tile m-hero">
+          <div class="label blue">Steam</div>
+          <h4>Ready to play</h4>
+          <p>Opens Steam in its own window. Sign in with your normal Steam account.</p>
+          <span class="btn play"><svg><use href="#i-play"/></svg>PLAY</span>
+        </div>
+        <div class="m-side">
+          <div class="tile"><div class="m-row"><div class="ring" style="--p:100"><div><span><b>10</b><small>DAYS</small></span></div></div><div><div class="label brand" style="margin:0 0 4px">Free trial</div><p>Then $6 / month</p></div></div></div>
+          <div class="tile"><div class="label blue" style="margin-bottom:6px">Updates</div><b style="font-size:22px">Automatic</b><p>You're asked before one installs.</p></div>
+        </div>
+      </div>
     </div>
 
     <section id="features">
-      <h2>How it works</h2>
-      <div class="grid">
-        <div class="card"><h3>1. One-click setup</h3><p>Game Bridge downloads a compatibility layer (Wine) and the official Steam installer directly from Valve, and configures everything for you.</p></div>
-        <div class="card"><h3>2. Launch Steam</h3><p>Press “Launch Steam”. Steam opens in its own window, ready to sign in to your account and browse your library.</p></div>
-        <div class="card"><h3>3. Stays working</h3><p>When Steam updates itself, Game Bridge automatically re-applies the fixes that keep Steam's interface from turning into a black window on Mac.</p></div>
+      <div class="head"><h2>Everything Steam needs. Done for you.</h2><p>Press one button. Game Bridge handles the Windows side, so you just play.</p></div>
+      <div class="bento">
+        <div class="tile s5 r2" style="background:linear-gradient(160deg,#1b3a57,#1e2b3a)">
+          <div class="icon green"><svg><use href="#i-bolt"/></svg></div>
+          <h3>One-click setup</h3>
+          <p>Game Bridge installs Rosetta 2 if needed, a Windows layer (Wine), DirectX 11 support and the official Steam installer, all automatically. Anything already on your Mac is reused, not downloaded again.</p>
+          <ul class="feature-list"><li>A few hundred MB to download, only once</li><li>A progress bar for every step</li><li>No passwords, no Terminal</li></ul>
+        </div>
+        <div class="tile s7"><div class="icon"><svg><use href="#i-shield"/></svg></div><h3>Official Steam, from Valve</h3><p>Steam downloads straight from Valve's servers. You sign in to your own account and play the games you already own. Nothing to buy twice.</p></div>
+        <div class="tile s4"><div class="icon brand"><svg><use href="#i-spark"/></svg></div><h3>DirectX 11 games</h3><p>Built-in DirectX 11 support lets many more games run.</p></div>
+        <div class="tile s3"><div class="icon"><svg><use href="#i-sync"/></svg></div><h3>Stays working</h3><p>Fixes are re-applied after every Steam update.</p></div>
+        <div class="tile s4"><div class="icon"><svg><use href="#i-drive"/></svg></div><h3>External drives</h3><p>Plug in a drive and Steam can install games on it. Your Mac stays free.</p></div>
+        <div class="tile s4"><div class="icon brand"><svg><use href="#i-down"/></svg></div><h3>Automatic updates</h3><p>New versions arrive by themselves. You're asked first.</p></div>
+        <div class="tile s4"><div class="icon"><svg><use href="#i-trash"/></svg></div><h3>Clean uninstall</h3><p>One button removes everything Game Bridge added, and nothing else.</p></div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="head"><h2>Three steps. That's it.</h2></div>
+      <div class="bento">
+        <div class="tile s4"><div class="num">STEP 1</div><h3>Download &amp; open</h3><p>Drag Game Bridge to Applications and open it.</p></div>
+        <div class="tile s4"><div class="num">STEP 2</div><h3>Press Install</h3><p>Everything is set up for you in a few minutes.</p></div>
+        <div class="tile s4"><div class="num">STEP 3</div><h3>Press Play</h3><p>Steam opens. Sign in and play your library.</p></div>
       </div>
     </section>
 
     <section id="pricing">
-      <h2>Pricing</h2>
-      <div class="grid">
-        <div class="card price">
-          <h3>Monthly</h3>
-          <div class="amount">$6<span> / month</span></div>
-          <ul><li>All features</li><li>Free updates</li><li>Cancel anytime</li></ul>
-          <a class="btn ghost" style="margin:0" href="#download">Start free trial</a>
-          <p class="small"><a href="https://buy.polar.sh/polar_cl_ynXvnukoEaEQUIqNQ3CpuLeob7SaWtkUZClLr0aEEEZ">or subscribe monthly now</a></p>
+      <div class="head"><h2>Simple pricing</h2><p>Start with 10 free days. Subscribe only if your games run the way you want.</p></div>
+      <div class="bento">
+        <div class="tile s6" style="background:linear-gradient(150deg,#2a1f57,#16263a)">
+          <div class="label brand">Every plan includes</div>
+          <h3>Everything, on 2 Macs</h3>
+          <ul class="feature-list">
+            <li>Play the Windows Steam games you already own</li>
+            <li>Steam keeps working after its updates, automatically</li>
+            <li>Every Game Bridge update included</li>
+            <li>Use one subscription on 2 Macs</li>
+            <li>Cancel anytime from your receipt email</li>
+          </ul>
+          <p class="note">After you subscribe, your license key arrives by email. Paste it into Game Bridge to unlock it. Prices in USD; taxes may apply at checkout.</p>
         </div>
-        <div class="card price best">
-          <span class="tag">Save 30%</span>
-          <h3>Yearly</h3>
-          <div class="amount">$50<span> / year</span></div>
-          <ul><li>All features</li><li>Free updates</li><li>Cancel anytime</li></ul>
-          <a class="btn primary" href="#download">Start free trial</a>
-          <p class="small"><a href="https://buy.polar.sh/polar_cl_D91KMyZfUvxdmtPjWtK6o9lNXSX5J5O2KoAuF4OmkFT">or subscribe yearly now</a></p>
+        <div class="tile plan s3">
+          <div class="label">Monthly</div>
+          <div class="big">$6<span> / month</span></div>
+          <p>Billed every month</p>
+          <ul><li>Everything included</li><li>Cancel anytime</li></ul>
+          <a class="btn ghost" href="#download">Start free trial</a>
+          <p class="note" style="text-align:center"><a href="https://buy.polar.sh/polar_cl_ynXvnukoEaEQUIqNQ3CpuLeob7SaWtkUZClLr0aEEEZ">or subscribe monthly now</a></p>
+        </div>
+        <div class="tile plan best s3">
+          <span class="tag">SAVE 30%</span>
+          <div class="label brand">Yearly</div>
+          <div class="big">$50<span> / year</span></div>
+          <p>Just $4.17 a month</p>
+          <ul><li>Everything included</li><li class="save">Save $22 a year</li><li>Cancel anytime</li></ul>
+          <a class="btn brand" href="#download">Start free trial</a>
+          <p class="note" style="text-align:center"><a href="https://buy.polar.sh/polar_cl_D91KMyZfUvxdmtPjWtK6o9lNXSX5J5O2KoAuF4OmkFT">or subscribe yearly now</a></p>
         </div>
       </div>
-      <p class="small" style="text-align:center">Every download includes a 10-day free trial — no card required. After you subscribe, your license key arrives by email: paste it into Game Bridge to unlock it. Prices in USD; taxes may apply at checkout.</p>
     </section>
 
-    <section id="download" style="text-align:center">
-      <h2>Download</h2>
-      <a class="btn primary" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg">Download for Mac (.dmg)</a>
-      <p class="small">Version 0.3.3 (beta) · includes a 10-day free trial</p>
-      <p class="small">Open the DMG and drag Game Bridge to Applications. Signed and notarized by Apple.</p>
+    <section id="download">
+      <div class="tile download">
+        <div class="label green">Free for 10 days</div>
+        <h2>Ready to play?</h2>
+        <p style="color:var(--dim)">No card required. Open the DMG and drag Game Bridge to Applications.</p>
+        <a class="btn play" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg><use href="#i-down"/></svg>Download for Mac (.dmg)</a>
+        <p class="note">Version 0.3.3 (beta) · includes a 10-day free trial</p>
+        <div class="reqs"><span class="chip">macOS 13 or later</span><span class="chip">Apple Silicon &amp; Intel</span><span class="chip">Signed &amp; notarized by Apple</span><span class="chip">About 1 GB free space for Steam</span></div>
+      </div>
     </section>
 
-    <section id="faq" class="faq">
-      <h2>FAQ</h2>
-      <details><summary>Do I need to buy my games again?</summary><p>No. You sign in to your own Steam account and use the games you already own.</p></details>
-      <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles that use anti-cheat or very new graphics features may not start. Try them during the free trial before subscribing.</p></details>
-      <details><summary>What does the trial include?</summary><p>Everything. After 10 days, choose a monthly or yearly subscription to keep using Game Bridge.</p></details>
-      <details><summary>Is Game Bridge made by Valve?</summary><p>No. Game Bridge is an independent app and is not affiliated with, endorsed by or sponsored by Valve Corporation. Steam is downloaded directly from Valve's servers.</p></details>
-      <details><summary>How do I cancel?</summary><p>Use the link in your purchase receipt email to manage or cancel your subscription at any time.</p></details>
+    <section id="faq">
+      <div class="head"><h2>Questions</h2></div>
+      <div class="faq">
+        <details><summary>Do I need to buy my games again?</summary><p>No. You sign in to your own Steam account and use the games you already own.</p></details>
+        <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles that use anti-cheat or very new graphics features may not start. Try them during the free trial before subscribing.</p></details>
+        <details><summary>What does the trial include?</summary><p>Everything. After 10 days, choose a monthly or yearly subscription to keep using Game Bridge.</p></details>
+        <details><summary>Can I install games on an external drive?</summary><p>Yes. Plug it in, open Steam from Game Bridge, then go to Steam → Settings → Storage → Add Drive.</p></details>
+        <details><summary>Is Game Bridge made by Valve?</summary><p>No. Game Bridge is an independent app and is not affiliated with, endorsed by or sponsored by Valve Corporation. Steam is downloaded directly from Valve's servers.</p></details>
+        <details><summary>How do I cancel or uninstall?</summary><p>Cancel from the link in your receipt email at any time. To remove the app, use Game Bridge → Uninstall Game Bridge. It removes only what Game Bridge installed.</p></details>
+      </div>
     </section>
 
     <footer>
       <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
       <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Game Bridge is not affiliated with Valve. macOS is a trademark of Apple Inc.</p>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
