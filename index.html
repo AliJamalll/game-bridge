@@ -134,6 +134,11 @@
       <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free for 10 days.</p>
     </section>
 
+    <section id="works" hidden>
+      <div class="head"><h2>Works on Game Bridge. Rated by players.</h2><p>After playing, Game Bridge players rate how each game ran. This list updates every few minutes.</p></div>
+      <div class="bento works-grid" id="works-grid"></div>
+    </section>
+
     <section id="trailers">
       <div class="head"><h2>Big Steam games. Watch the trailers.</h2><p>Valve removed the Mac versions of Team Fortress 2, Portal 2 and Left 4 Dead 2 in 2024. Game Bridge runs their Windows versions.</p></div>
       <div class="bento">
@@ -305,6 +310,28 @@
         io.disconnect();
       }, { threshold: 0.5 });
       io.observe(frame);
+    })();
+    // Player ratings from the app: shown only once there are real votes.
+    (function () {
+      fetch("/api/works").then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        const games = (d && d.games || []).filter(function (g) { return g.up > 0 && g.up >= g.down * 3; }).slice(0, 8);
+        if (!games.length) return;
+        const grid = document.getElementById("works-grid");
+        games.forEach(function (g) {
+          const total = g.up + g.down, pct = Math.round(g.up / total * 100);
+          const el = document.createElement("div");
+          el.className = "tile work s3";
+          const img = document.createElement("img");
+          img.src = "https://cdn.akamai.steamstatic.com/steam/apps/" + encodeURIComponent(g.appid) + "/header.jpg";
+          img.alt = ""; img.loading = "lazy";
+          const name = document.createElement("h3"); name.textContent = g.name;
+          const meta = document.createElement("p");
+          meta.innerHTML = '<span class="green-text">' + pct + '% runs well</span> · ' + total + (total === 1 ? " rating" : " ratings");
+          el.append(img, name, meta);
+          grid.append(el);
+        });
+        document.getElementById("works").hidden = false;
+      }).catch(function () {});
     })();
     // Rotating headline word (static when the visitor prefers reduced motion).
     (function () {

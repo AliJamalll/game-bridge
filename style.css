@@ -230,6 +230,12 @@ footer .links a:hover { color: var(--text); }
 .perks .tile { padding: 22px; }
 .perks h3 { font-size: 17px; }
 
+.work { padding: 0 0 16px; overflow: hidden; }
+.work img { display: block; width: 100%; aspect-ratio: 460 / 215; object-fit: cover; margin-bottom: 12px; }
+.work h3, .work p { padding: 0 16px; }
+.work h3 { font-size: 15px; margin-bottom: 2px; }
+.work p { font-size: 13px; }
+
 /* Legal pages */
 .legal { max-width: 780px; }
 .legal header.top { display: flex; align-items: center; padding: 24px 0; }
