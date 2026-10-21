@@ -249,6 +249,12 @@ footer .links a:hover { color: var(--text); }
 .f-count b, .f-time b { color: var(--text); }
 .founders .btn.small { height: 34px; }
 
+.invited { background: linear-gradient(90deg, rgba(117,176,34,.2), rgba(102,192,244,.16)); border-bottom: 1px solid rgba(117,176,34,.4); }
+.invited .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 10px; font-size: 14px; }
+.invited .f-badge { background: linear-gradient(180deg, var(--play-a), var(--play-b)); }
+.invited code { font-weight: 900; letter-spacing: .08em; color: var(--text); background: rgba(0,0,0,.3); padding: 2px 8px; border-radius: 6px; }
+.invited .btn.small { height: 34px; }
+
 /* Legal pages */
 .legal { max-width: 780px; }
 .legal header.top { display: flex; align-items: center; padding: 24px 0; }

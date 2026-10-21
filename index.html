@@ -38,6 +38,15 @@
   </div>
 
 
+  <div class="invited" id="invited" hidden>
+    <div class="wrap">
+      <span class="f-badge">INVITED</span>
+      <span class="f-text"><b>A friend invited you to Game Bridge.</b> Download it, then enter code <code id="inv-code"></code> for 10 extra free days.</span>
+      <button class="btn ghost small" type="button" id="inv-copy">Copy code</button>
+      <a class="btn play small" href="#download">Download free</a>
+    </div>
+  </div>
+
   <div class="founders" id="founders" hidden>
     <div class="wrap">
       <span class="f-badge">FOUNDERS</span>
@@ -322,6 +331,18 @@
         io.disconnect();
       }, { threshold: 0.5 });
       io.observe(frame);
+    })();
+    // Invite links (?invite=CODE): show the friend their code.
+    (function () {
+      const code = (new URLSearchParams(location.search).get("invite") || "").toUpperCase().replace(/[^0-9A-Z]/g, "");
+      if (!/^[2-9A-HJKMNP-Z]{8}$/.test(code)) return;
+      document.getElementById("inv-code").textContent = code;
+      document.getElementById("invited").hidden = false;
+      const btn = document.getElementById("inv-copy");
+      btn.addEventListener("click", function () {
+        const done = function () { btn.textContent = "Copied"; };
+        if (navigator.clipboard) navigator.clipboard.writeText(code).then(done, function () {}); else done();
+      });
     })();
     // Founders offer: real seats from the server and a real deadline; hidden once it's over.
     (function () {

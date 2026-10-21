@@ -2,6 +2,7 @@
 // app's local state doesn't restart the trial. The app sends a SHA-256 of the
 // Mac's hardware UUID (never the UUID itself) and its locally stored start.
 import { get, put } from '@vercel/blob';
+import { bonusDays, signBonus } from './_bonus.js';
 
 const DEVICE = /^[0-9a-f]{64}$/;
 
@@ -10,6 +11,11 @@ async function readStart(path) {
   if (!res) return null;
   const start = Number(await new Response(res.stream).text());
   return Number.isFinite(start) ? { start, etag: res.blob.etag } : null;
+}
+
+async function bonus(device) {
+  try { const b = await bonusDays(device); return { bonusDays: b.days, bonusSig: signBonus(device, b.days) }; }
+  catch { return {}; }
 }
 
 export default async function handler(req, res) {
@@ -31,7 +37,7 @@ export default async function handler(req, res) {
     if (!record) {
       try {
         await put(path, String(claimed), { access: 'private', addRandomSuffix: false, allowOverwrite: false, contentType: 'text/plain' });
-        return res.status(200).json({ start: claimed, now });
+        return res.status(200).json({ start: claimed, now, ...(await bonus(device)) });
       } catch {
         record = await readStart(path); // Another request created it first.
         if (!record) throw new Error('write failed');
@@ -40,9 +46,9 @@ export default async function handler(req, res) {
     if (claimed < record.start) {
       // Keep the earliest start ever reported (e.g. existing trials from before this server).
       await put(path, String(claimed), { access: 'private', addRandomSuffix: false, allowOverwrite: true, ifMatch: record.etag, contentType: 'text/plain' }).catch(() => {});
-      return res.status(200).json({ start: claimed, now });
+      return res.status(200).json({ start: claimed, now, ...(await bonus(device)) });
     }
-    return res.status(200).json({ start: record.start, now });
+    return res.status(200).json({ start: record.start, now, ...(await bonus(device)) });
   } catch (e) {
     return res.status(503).json({ error: 'unavailable' });
   }
