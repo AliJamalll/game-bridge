@@ -255,6 +255,12 @@ footer .links a:hover { color: var(--text); }
 .invited code { font-weight: 900; letter-spacing: .08em; color: var(--text); background: rgba(0,0,0,.3); padding: 2px 8px; border-radius: 6px; }
 .invited .btn.small { height: 34px; }
 
+.deal { color: var(--text); text-decoration: none; transition: transform .15s ease, border-color .15s ease; }
+.deal:hover { transform: translateY(-2px); border-color: rgba(102,192,244,.4); }
+.deal .price { font-size: 18px; color: var(--text); }
+.deal s { color: var(--dim); }
+.deal .off { color: #0e141b; background: var(--play-a); font-weight: 900; font-size: 12px; padding: 1px 6px; border-radius: 6px; }
+
 /* Legal pages */
 .legal { max-width: 780px; }
 .legal header.top { display: flex; align-items: center; padding: 24px 0; }

@@ -31,7 +31,7 @@
     <div class="wrap">
       <a class="brand" href="./"><img src="icon.png" alt=""><b>GAME BRIDGE</b></a>
       <nav>
-        <a href="#how">How it works</a><a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+        <a href="#how">How it works</a><a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#deals">Deals</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
         <a class="btn play small" href="#download"><svg><use href="#i-down"/></svg>Download<span class="long">&nbsp;free</span></a>
       </nav>
     </div>
@@ -158,6 +158,12 @@
     <section id="works" hidden>
       <div class="head"><h2>Works on Game Bridge. Rated by players.</h2><p>After playing, Game Bridge players rate how each game ran. This list updates every few minutes.</p></div>
       <div class="bento works-grid" id="works-grid"></div>
+    </section>
+
+    <section id="deals" hidden>
+      <div class="head"><h2>Deals on games that run on Mac.</h2><p>The lowest current price from trusted stores, for games that work with Game Bridge.</p></div>
+      <div class="bento" id="deals-grid"></div>
+      <p class="note">Prices from <a href="https://www.cheapshark.com" rel="noopener">CheapShark</a>, updated every few hours. We may earn a commission when you buy through these links, at no extra cost to you.</p>
     </section>
 
     <section id="trailers">
@@ -363,6 +369,25 @@
         }
         tick(); setInterval(tick, 1000);
         box.hidden = false;
+      }).catch(function () {});
+    })();
+    // Game deals (from /api/deals): shown when there are any.
+    (function () {
+      fetch("/api/deals").then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        const deals = (d && d.deals || []).slice(0, 8);
+        if (!deals.length) return;
+        const grid = document.getElementById("deals-grid");
+        deals.forEach(function (g) {
+          const a = document.createElement("a");
+          a.className = "tile work deal s3"; a.href = g.link; a.target = "_blank"; a.rel = "noopener sponsored";
+          const img = document.createElement("img"); img.alt = ""; img.loading = "lazy";
+          img.src = "https://cdn.akamai.steamstatic.com/steam/apps/" + encodeURIComponent(g.appid) + "/header.jpg";
+          const h = document.createElement("h3"); h.textContent = g.title;
+          const p = document.createElement("p");
+          p.innerHTML = '<b class="price">$' + g.price.toFixed(2) + '</b>' + (g.savings > 0 ? ' <s>$' + g.retail.toFixed(2) + '</s> <span class="off">-' + g.savings + '%</span>' : '') + '<br>at ' + g.store.replace(/[<>&]/g, "") + (g.runsWell ? ' · <span class="green-text">Runs well</span>' : '');
+          a.append(img, h, p); grid.append(a);
+        });
+        document.getElementById("deals").hidden = false;
       }).catch(function () {});
     })();
     // Player ratings from the app: shown only once there are real votes.
