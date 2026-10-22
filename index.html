@@ -137,7 +137,7 @@
     </section>
 
     <section class="wrap" id="full-steam">
-      <div class="head"><h2>The full Steam. Not a cut-down version.</h2><p>It's the real Windows Steam app, so everything you use on a PC is here too.</p></div>
+      <div class="head"><h2>The full Steam. Not a <span class="nw">cut-down</span> version.</h2><p>It's the real Windows Steam app, so everything you use on a PC is here too.</p></div>
       <dl class="perks">
         <div><dt>Your whole library</dt><dd>Every Windows game you own, ready to install.</dd></div>
         <div><dt>The Steam store &amp; sales</dt><dd>Browse, wishlist and buy new games right inside Steam.</dd></div>
@@ -262,7 +262,7 @@
       <div class="faq">
         <details><summary>Is it an emulator or a virtual machine?</summary><p>Neither. Game Bridge uses Wine, a compatibility layer that lets Windows apps run directly on macOS, plus DirectX support for games. There's no copy of Windows to install or pay for.</p></details>
         <details><summary>Do I need to buy my games again?</summary><p>No. You sign in to your own Steam account and use the games you already own.</p></details>
-        <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles that use anti-cheat or very new graphics features may not start. Try them during the free trial before subscribing.</p></details>
+        <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles with very new graphics features may not start. Games whose anti-cheat doesn't run on a Mac, like Apex Legends or Rainbow Six Siege, are marked in the app, which offers to play them on GeForce NOW where it's available, or to stream them from your own Windows PC with Steam Link. Try your games during the free trial before subscribing.</p></details>
         <details><summary>What does the trial include?</summary><p>Everything. After 10 days, choose a monthly or yearly subscription to keep using Game Bridge.</p></details>
         <details><summary>Can I install games on an external drive?</summary><p>Yes. Plug it in, open Steam from Game Bridge, then go to Steam → Settings → Storage → Add Drive.</p></details>
         <details><summary>Is Game Bridge made by Valve?</summary><p>No. Game Bridge is an independent app and is not affiliated with, endorsed by or sponsored by Valve Corporation. Steam is downloaded directly from Valve's servers.</p></details>
@@ -292,7 +292,7 @@
       menu.addEventListener("click", function (e) { if (e.target === menu || e.target.closest(".side-links a")) close(); });
     })();
 
-    // Hero video reel: cross-fade to the next clip every 6 seconds; only the first clip loads up front.
+    // Hero video reel: cross-fade to the next clip every 10 seconds; only the first clip loads up front.
     (function () {
       let clips = [...document.querySelectorAll(".reel video")];
       if (!clips.length) return;
@@ -307,10 +307,10 @@
         const cur = clips[i], next = clips[(i + 1) % clips.length];
         next.preload = "auto"; next.currentTime = 0; playSafe(next);
         next.classList.add("on"); cur.classList.remove("on");
-        setTimeout(function () { cur.pause(); }, 1200);
+        setTimeout(function () { cur.pause(); }, 2000);
         i = (i + 1) % clips.length;
         clips[(i + 1) % clips.length].preload = "auto";
-      }, 6000);
+      }, 10000);
     })();
     // Hero shelf: pointing at a cover brings that game's art behind the headline (like the app);
     // clicking one plays its trailer further down.
@@ -354,9 +354,21 @@
         chips.appendChild(b);
       });
     })();
-    // Video tiles: load when scrolled near, play only while visible.
+    // Video tiles: load when scrolled near, play only while visible. With a mouse, the game-footage
+    // gallery plays a tile only while it's pointed at, so six clips never run at once.
     (function () {
-      const tiles = [...document.querySelectorAll("video.tv")];
+      let tiles = [...document.querySelectorAll("video.tv")];
+      if (matchMedia("(hover: hover)").matches) {
+        tiles.filter(function (v) { return v.closest(".vtile"); }).forEach(function (vid) {
+          const tile = vid.closest(".vtile");
+          tile.addEventListener("mouseenter", function () {
+            if (!vid.src) vid.src = vid.dataset.src;
+            const p = vid.play(); if (p && p.catch) p.catch(function () {});
+          });
+          tile.addEventListener("mouseleave", function () { vid.pause(); });
+        });
+        tiles = tiles.filter(function (v) { return !v.closest(".vtile"); });
+      }
       if (!tiles.length || matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
       const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -369,14 +381,14 @@
       }, { rootMargin: "200px 0px" });
       tiles.forEach(function (t) { io.observe(t); });
     })();
-    // Trailers: muted autoplay when the player scrolls into view; rotates every 30 s until the visitor picks one.
+    // Trailers: muted autoplay when the player scrolls into view; the visitor picks the next one.
     (function () {
       const frame = document.getElementById("tplayer");
       if (!frame) return;
       const picks = [...document.querySelectorAll(".pick")];
       const now = document.getElementById("tnow");
       const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let idx = 0, chosen = false, started = false, timer = null;
+      let idx = 0, started = false;
       function load(i, autoplay) {
         idx = i;
         const b = picks[i];
@@ -387,13 +399,12 @@
           ' trailer" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
         started = true;
       }
-      picks.forEach(function (b, i) { b.addEventListener("click", function () { chosen = true; clearInterval(timer); load(i, true); }); });
-      frame.addEventListener("click", function () { if (!started) { chosen = true; load(idx, true); } });
+      picks.forEach(function (b, i) { b.addEventListener("click", function () { load(i, true); }); });
+      frame.addEventListener("click", function () { if (!started) load(idx, true); });
       if (reduce || !("IntersectionObserver" in window)) return;
       const io = new IntersectionObserver(function (entries) {
         if (!entries[0].isIntersecting || started) return;
         load(0, true);
-        timer = setInterval(function () { if (!chosen) load((idx + 1) % picks.length, true); }, 30000);
         io.disconnect();
       }, { threshold: 0.5 });
       io.observe(frame);
