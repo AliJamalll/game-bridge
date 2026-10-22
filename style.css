@@ -1,6 +1,6 @@
 /* Game Bridge — a console launcher on the web: game art fills the screen, huge condensed titles,
-   covers on a shelf with a white focus ring, one green button.
-   Colors mean one thing each: green = the download button, purple = brand: links, ticks, highlights and subscription,
+   covers on a shelf with a white focus ring, one violet button.
+   Colors mean one thing each: deep violet = the download button, lavender = brand: links, ticks, highlights and subscription,
    amber = warning. */
 :root {
   --bg: #0e1217;
@@ -11,8 +11,8 @@
   --text: #e2e7ec;
   --soft: #c3ccd5;
   --dim: #a3acb5;
-  --play-a: #478115;
-  --play-b: #3b6d10;
+  --play-a: #7651f0;           /* the download button, same violet as the app's Play */
+  --play-b: #5a36d6;
   --go: var(--sub-text);       /* "good" text and ticks: the brand purple */
   --sub: #6a45d6;              /* subscription fills (white text passes AA) */
   --sub-text: #b49cff;         /* subscription text on dark */
@@ -48,7 +48,7 @@ h1, h2, .price, .feature-lead h3, .vtile.wide h3 { font-family: var(--display); 
 .topbar .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
 .brand { display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; font-weight: 650;
   font-size: 16px; white-space: nowrap; }
-.brand img { width: 27px; height: 18px; }   /* the mark sits at the height of the name, no tile around it */
+.brand img { width: 29px; height: 18px; }   /* the mark sits at the height of the name, no tile around it */
 nav { display: flex; gap: 24px; margin-left: auto; }
 nav a { color: var(--dim); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; }
 nav a:hover { color: var(--text); }
