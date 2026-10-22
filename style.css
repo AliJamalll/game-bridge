@@ -46,9 +46,9 @@ h1, h2, .price, .steps li::before, .feature-lead h3, .vtile.wide h3 { font-famil
 .topbar { position: sticky; top: 0; z-index: 10; background: rgba(19, 25, 32, 0.92); backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--stroke); }
 .topbar .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 650;
+.brand { display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; font-weight: 650;
   font-size: 16px; white-space: nowrap; }
-.brand img { width: 30px; height: 30px; }
+.brand img { width: 27px; height: 18px; }   /* the mark sits at the height of the name, no tile around it */
 nav { display: flex; gap: 24px; margin-left: auto; }
 nav a { color: var(--dim); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; }
 nav a:hover { color: var(--text); }
