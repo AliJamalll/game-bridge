@@ -53,16 +53,11 @@
 
   <section class="hero" aria-labelledby="hero-title">
     <div class="reel" aria-hidden="true">
-      <video class="clip on" src="media/game1.mp4" poster="media/game1.jpg" muted playsinline loop preload="auto" autoplay></video>
-      <video class="clip" src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/game2.mp4" poster="media/game2.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/hero4.mp4" poster="media/hero4.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/game3.mp4" poster="media/game3.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/hero3.mp4" poster="media/hero3.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/game4.mp4" poster="media/game4.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/hero5.mp4" poster="media/hero5.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/game5.mp4" poster="media/game5.jpg" muted playsinline loop preload="none"></video>
-      <video class="clip" src="media/game6.mp4" poster="media/game6.jpg" muted playsinline loop preload="none"></video>
+      <!-- Footage from each game's official Steam trailer -->
+      <video class="clip on" src="media/hero-spiderman.mp4" poster="media/hero-spiderman.jpg" muted playsinline loop preload="auto" autoplay></video>
+      <video class="clip" src="media/hero-cod.mp4" poster="media/hero-cod.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero-forza.mp4" poster="media/hero-forza.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero-fc.mp4" poster="media/hero-fc.jpg" muted playsinline loop preload="none"></video>
     </div>
     <div class="hero-art" aria-hidden="true"></div>
     <div class="wrap hero-copy">
@@ -275,7 +270,7 @@
       menu.addEventListener("click", function (e) { if (e.target === menu || e.target.closest(".side-links a")) close(); });
     })();
 
-    // Hero video reel: cross-fade to the next clip every 10 seconds; only the first clip loads up front.
+    // Hero video reel: cross-fade to the next clip as each 6-second clip ends; only the first clip loads up front.
     (function () {
       let clips = [...document.querySelectorAll(".reel video")];
       if (!clips.length) return;
@@ -293,7 +288,7 @@
         setTimeout(function () { cur.pause(); }, 2000);
         i = (i + 1) % clips.length;
         clips[(i + 1) % clips.length].preload = "auto";
-      }, 10000);
+      }, 5600);
     })();
     // Hero shelf: pointing at a cover brings that game's art behind the headline (like the app);
     // clicking one plays its trailer further down.

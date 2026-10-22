@@ -11,16 +11,16 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .dash { padding: 32px 0 60px; display: grid; gap: 18px; }
-    .bar { height: 10px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 6px; }
+    .bar { height: 10px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 6px; }
     .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--sub-text), var(--brand-b)); }
     .row { display: grid; grid-template-columns: 180px 1fr 60px; gap: 12px; align-items: center; font-size: 14px; padding: 6px 0; }
     .row b { text-align: right; font-variant-numeric: tabular-nums; }
     .kpi { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; }
     .fb { border-top: 1px solid var(--stroke); padding: 12px 0; font-size: 14px; }
     .fb small { color: var(--dim); }
-    .fb pre { white-space: pre-wrap; color: #c3ccd5; font: 13px/1.5 ui-monospace, Menlo, monospace; margin: 8px 0 0; max-height: 160px; overflow: auto; background: rgba(0,0,0,.25); padding: 8px; border-radius: 8px; }
+    .fb pre { white-space: pre-wrap; color: #c3ccd5; font: 13px/1.5 ui-monospace, Menlo, monospace; margin: 8px 0 0; max-height: 160px; overflow: auto; background: rgba(0,0,0,.25); padding: 8px; }
     #data { display: grid; gap: 18px; } [hidden] { display: none !important; }
-    #login input { height: 46px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(0,0,0,.25); color: var(--text); padding: 0 14px; font: inherit; width: min(420px, 100%); }
+    #login input { height: 46px; border: 1px solid var(--stroke); background: rgba(0,0,0,.25); color: var(--text); padding: 0 14px; font: inherit; width: min(420px, 100%); }
     @media (max-width: 600px) { .row { grid-template-columns: 1fr 50px; } .row .bar { grid-column: 1 / -1; } }
   </style>
 </head>
