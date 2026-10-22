@@ -159,8 +159,10 @@ main > section, main > section.wrap { margin-top: 112px; }
 /* Deals and player ratings */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
 .card { background: var(--tile); border: 1px solid var(--stroke); border-radius: var(--radius); overflow: hidden; padding-bottom: 16px;
-  color: var(--text); text-decoration: none; }
-.card img { width: 100%; aspect-ratio: 460 / 215; object-fit: cover; margin-bottom: 12px; }
+  color: var(--text); text-decoration: none; isolation: isolate; }
+/* iOS Safari can skip the card's overflow clip on rounded corners, so the image rounds its own top corners */
+.card img { display: block; width: 100%; aspect-ratio: 460 / 215; object-fit: cover; margin-bottom: 12px;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0; }
 .card h3, .card p { padding: 0 16px; }
 .card h3 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
 .card p { margin: 0; font-size: 14px; color: var(--dim); }
