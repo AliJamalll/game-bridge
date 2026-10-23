@@ -121,9 +121,9 @@
     <section class="wrap" id="library">
       <div class="head"><h2>Every kind of game in your Steam library.</h2><p>Sign in once and your whole library is there: the worlds, races and battles you already own.</p></div>
       <div class="gallery">
-        <figure class="vtile wide"><video class="tv" data-src="media/tile-bike.mp4" poster="media/tile-bike.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Explore huge worlds on your Mac</h3><p>Big 3D games that use DirectX 11.</p></figcaption></figure>
-        <figure class="vtile"><video class="tv" data-src="media/tile-racing.mp4" poster="media/tile-racing.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Racing</h3></figcaption></figure>
-        <figure class="vtile"><video class="tv" data-src="media/tile-mech.mp4" poster="media/tile-mech.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Sci-fi action</h3></figcaption></figure>
+        <figure class="vtile wide"><video class="tv" data-src="media/tile-gta.mp4" poster="media/tile-gta.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Explore huge worlds on your Mac</h3><p>Grand Theft Auto V and other big 3D games that use DirectX 11.</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-forza.mp4" poster="media/tile-forza.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Racing</h3><p>Forza Horizon 5</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-doom.mp4" poster="media/tile-doom.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Sci-fi action</h3><p>DOOM Eternal</p></figcaption></figure>
         <figure class="vtile"><video class="tv" data-src="media/tile-space.mp4" poster="media/tile-space.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Space &amp; strategy</h3></figcaption></figure>
         <figure class="vtile"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Indie &amp; retro</h3></figcaption></figure>
         <figure class="vtile"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>With friends</h3><p>Steam chat and friends list.</p></figcaption></figure>
@@ -356,21 +356,9 @@
         requestAnimationFrame(function (t) { last = t; requestAnimationFrame(step); });
       }
     })();
-    // Video tiles: load when scrolled near, play only while visible. With a mouse, the game-footage
-    // gallery plays a tile only while it's pointed at, so six clips never run at once.
+    // Video tiles: load when scrolled near, play only while visible.
     (function () {
-      let tiles = [...document.querySelectorAll("video.tv")];
-      if (matchMedia("(hover: hover)").matches) {
-        tiles.filter(function (v) { return v.closest(".vtile"); }).forEach(function (vid) {
-          const tile = vid.closest(".vtile");
-          tile.addEventListener("mouseenter", function () {
-            if (!vid.src) vid.src = vid.dataset.src;
-            const p = vid.play(); if (p && p.catch) p.catch(function () {});
-          });
-          tile.addEventListener("mouseleave", function () { vid.pause(); });
-        });
-        tiles = tiles.filter(function (v) { return !v.closest(".vtile"); });
-      }
+      const tiles = [...document.querySelectorAll("video.tv")];
       if (!tiles.length || matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
       const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {

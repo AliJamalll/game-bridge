@@ -11,11 +11,11 @@
   --text: #e2e7ec;
   --soft: #c3ccd5;
   --dim: #a3acb5;
-  --play-a: #8b5cf6;           /* the download button: a clear, saturated violet */
-  --play-b: #6d28d9;
+  --play-a: #f876da;           /* the download button: pink into violet, like the icon */
+  --play-b: #9358e8;
   --go: var(--sub-text);       /* "good" text and ticks: the brand purple */
   --sub: #6a45d6;              /* subscription fills (white text passes AA) */
-  --sub-text: #b49cff;         /* subscription text on dark */
+  --sub-text: #e79bf2;         /* subscription text on dark: a light tint of the download gradient */
   --brand-b: var(--sub-text);  /* used by admin.html */
   --warn: #f5a623;
   --body: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -32,7 +32,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: rgba(180, 156, 255, 0.35); color: #fff; }
+::selection { background: rgba(231, 155, 242, 0.35); color: #fff; }
 a { color: var(--sub-text); text-underline-offset: 3px; }
 :focus-visible { outline: 2px solid var(--sub-text); outline-offset: 3px; }
 img, video { display: block; max-width: 100%; }
@@ -74,8 +74,8 @@ nav a:hover { color: var(--text); }
   border: 1px solid rgba(255, 255, 255, 0.14); color: #fff; transition: filter .15s ease, background-color .15s ease; }
 .btn:hover { filter: brightness(1.12); }
 .btn:active { filter: brightness(0.94); }
-.btn.play { background: linear-gradient(180deg, var(--play-a), var(--play-b)); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 6px 22px rgba(139, 92, 246, 0.35); }
-.btn.sub-btn, .btn.brand { background: var(--sub); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); }
+.btn.play { background: linear-gradient(180deg, var(--play-a), var(--play-b)); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 6px 22px rgba(232, 102, 222, 0.35); }
+.btn.sub-btn, .btn.brand { background: linear-gradient(180deg, var(--play-a), var(--play-b)); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); }
 .btn.ghost { background: rgba(255, 255, 255, 0.07); color: var(--text); border-color: var(--stroke); }
 .btn.ghost:hover { background: rgba(255, 255, 255, 0.12); filter: none; }
 .btn.small { height: 38px; padding: 0 16px; font-size: 16px; }
@@ -163,7 +163,7 @@ main > section, main > section.wrap { margin-top: 112px; }
 .card h3 { font-size: 15px; margin: 0 0 2px; font-weight: 650; }
 .card p { margin: 0; font-size: 14px; color: var(--dim); }
 .deal { transition: border-color .15s ease; }
-.deal:hover { border-color: rgba(180, 156, 255, 0.5); }
+.deal:hover { border-color: rgba(231, 155, 242, 0.5); }
 .deal .price { font-size: 18px; color: var(--text); }
 .deal s { color: var(--dim); }
 .deal .off { color: #0e141b; background: var(--go); font-weight: 700; font-size: 12px; padding: 1px 6px; }
@@ -183,7 +183,7 @@ main > section, main > section.wrap { margin-top: 112px; }
 .pick { display: flex; align-items: center; gap: 12px; padding: 8px; border: 1px solid transparent; background: transparent;
   color: var(--text); text-align: left; cursor: pointer; font: inherit; }
 .pick:hover { background: rgba(255, 255, 255, 0.05); }
-.pick.on { background: rgba(180, 156, 255, 0.1); border-color: rgba(180, 156, 255, 0.35); }
+.pick.on { background: rgba(231, 155, 242, 0.1); border-color: rgba(231, 155, 242, 0.35); }
 .pick img { width: 96px; aspect-ratio: 16 / 9; object-fit: cover; flex: none; }
 .pick span { display: flex; flex-direction: column; min-width: 0; }
 .pick b { font-size: 14px; font-weight: 650; }
@@ -213,10 +213,10 @@ main > section, main > section.wrap { margin-top: 112px; }
 .plan { background: var(--tile); border: 1px solid var(--stroke); padding: 28px; display: flex; flex-direction: column;
   transition: transform .18s ease, box-shadow .18s ease; }
 .plan:hover { border-color: rgba(255, 255, 255, 0.22); }
-.plan.best { background: var(--tile-hi); border: 1px solid rgba(180, 156, 255, 0.45); }
-.plan.best:hover { border-color: rgba(180, 156, 255, 0.7); }
+.plan.best { background: var(--tile-hi); border: 1px solid rgba(231, 155, 242, 0.45); }
+.plan.best:hover { border-color: rgba(231, 155, 242, 0.7); }
 .plan h3 { display: flex; align-items: center; justify-content: space-between; margin: 0; font-size: 17px; font-weight: 650; }
-.tag { font-size: 12px; font-weight: 600; color: #fff; padding: 3px 9px; background: var(--sub); }
+.tag { font-size: 12px; font-weight: 600; color: #fff; padding: 3px 9px; background: linear-gradient(180deg, var(--play-a), var(--play-b)); }
 .price { font-size: 64px; font-weight: 800; line-height: 0.9; margin: 18px 0 6px; }
 .price span { font-family: var(--body); text-transform: none; font-size: 16px; font-weight: 500; color: var(--dim); margin-left: 6px; }
 .plan > p { margin: 0; color: var(--dim); }
