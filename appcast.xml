@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.6.4</title>
+      <pubDate>Sat, 24 Oct 2026 12:25:12 GMT</pubDate>
+      <sparkle:version>16</sparkle:version>
+      <sparkle:shortVersionString>0.6.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Fixes Steam saying there isn&#x27;t enough space on an external drive: Game Bridge now keeps the drive&#x27;s letter (like D:) so Steam can always reach its library there.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.6.4/GameBridge.dmg" sparkle:edSignature="0bPUZv1VATwLJq5S7+CqF74N6nrCf8CMdJMqfFUtPPYWWijMLUZN17a3PkQWEll50OtykPeXqmatGxMumGkWCg==" length="3521982" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.6.3</title>
       <pubDate>Fri, 23 Oct 2026 20:46:09 GMT</pubDate>
       <sparkle:version>15</sparkle:version>
