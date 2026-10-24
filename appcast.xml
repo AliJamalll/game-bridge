@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.6.6</title>
+      <pubDate>Sat, 24 Oct 2026 19:41:03 GMT</pubDate>
+      <sparkle:version>18</sparkle:version>
+      <sparkle:shortVersionString>0.6.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Licenses and free trials are now confirmed by Game Bridge&#x27;s server, which keeps your subscription safe and working. Your first launch needs an internet connection once to start the free trial.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.6.6/GameBridge.dmg" sparkle:edSignature="pqmvsQQTg/qwz9WccDTWcr76L07vd6j/6QeApZ3qp2SQH/YQB+0qfVJM4mNNgyXmT2j+r6+Y1ri/Si4erVhXAw==" length="12126557" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.6.5</title>
       <pubDate>Sat, 24 Oct 2026 17:09:14 GMT</pubDate>
       <sparkle:version>17</sparkle:version>
