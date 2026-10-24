@@ -1,6 +1,7 @@
 // Shared helpers for invite rewards. Files starting with "_" are not routes on Vercel.
 import { list, head } from '@vercel/blob';
-import { createHash, createPrivateKey, sign } from 'node:crypto';
+import { createHash } from 'node:crypto';
+import { signed } from './_security.js';
 
 export const PER_FRIEND = 30, MAX_FRIENDS = 3, INVITED_BONUS = 10;
 const ALPHABET = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';   // no 0/O/1/I/L
@@ -24,6 +25,5 @@ export async function bonusDays(device) {
 
 /** Signature the app checks, so a bonus can't be edited on the Mac. */
 export function signBonus(device, days) {
-  const key = createPrivateKey({ key: Buffer.from(process.env.FOUNDERS_SIGNING_KEY, 'base64'), format: 'der', type: 'pkcs8' });
-  return sign(null, Buffer.from(`gamebridge-bonus:${device}:${days}`), key).toString('base64');
+  return signed(`gamebridge-bonus:${device}:${days}`);
 }

@@ -1,4 +1,5 @@
-// Private dashboard data for the owner: funnel, survey and feedback. Needs ?token=ADMIN_TOKEN.
+// Private dashboard data for the owner: funnel, survey and feedback. Needs "Authorization: Bearer <ADMIN_TOKEN>"
+// (a header, so the token stays out of URLs and request logs).
 import { list, get } from '@vercel/blob';
 import { timingSafeEqual } from 'node:crypto';
 import { EVENTS } from './event.js';
@@ -12,7 +13,7 @@ async function read(b) { const r = await get(b.pathname, { access: 'private', us
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
-  const given = Buffer.from(String(req.query.token || '')), want = Buffer.from(String(process.env.ADMIN_TOKEN || ''));
+  const given = Buffer.from(String(req.headers.authorization || '').replace(/^Bearer /, '')), want = Buffer.from(String(process.env.ADMIN_TOKEN || ''));
   if (!want.length || given.length !== want.length || !timingSafeEqual(given, want)) return res.status(401).json({ error: 'unauthorized' });
   try {
     const days = Math.min(Number(req.query.days) || 30, 90);

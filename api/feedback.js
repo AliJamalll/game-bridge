@@ -2,15 +2,17 @@
 // POST { device, kind: "feedback" | "survey", text?, email?, answer?, log?, version?, macos? }
 import { put } from '@vercel/blob';
 import { randomBytes } from 'node:crypto';
+import { body as parse, client, rateLimited } from './_security.js';
 
 const DEVICE = /^[0-9a-f]{64}$/;
 const ANSWERS = ['very', 'somewhat', 'not'];
+const PER_HOUR = 10;   // messages one network can send in an hour
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
-  const b = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-  const device = String(b.device || '');
+  const b = parse(req);
+  const device = String(b?.device || '');
   const kind = b.kind === 'survey' ? 'survey' : 'feedback';
   if (!DEVICE.test(device)) return res.status(400).json({ error: 'bad device' });
   const entry = {
@@ -22,6 +24,7 @@ export default async function handler(req, res) {
   if (kind === 'feedback' && !entry.text.trim()) return res.status(400).json({ error: 'empty' });
   if (kind === 'survey' && !entry.answer) return res.status(400).json({ error: 'bad answer' });
   try {
+    if (await rateLimited('feedback', client(req).ipHash, PER_HOUR)) return res.status(429).json({ error: 'too many requests' });
     // Surveys: one answer per Mac (the latest wins). Feedback: every message is kept.
     const path = kind === 'survey' ? `survey/${device}` : `feedback/${Date.now()}-${randomBytes(4).toString('hex')}.json`;
     await put(path, JSON.stringify(entry), { access: 'private', addRandomSuffix: false, allowOverwrite: true, contentType: 'application/json' });

@@ -59,7 +59,7 @@
     function getKey() { try { return localStorage.getItem("gb-admin") || ""; } catch (e) { return ""; } }
     function setKey(k) { try { k ? localStorage.setItem("gb-admin", k) : localStorage.removeItem("gb-admin"); } catch (e) {} }
     async function load(key) {
-      const r = await fetch("/api/admin?token=" + encodeURIComponent(key));
+      const r = await fetch("/api/admin", { headers: { Authorization: "Bearer " + key } });
       if (r.status === 401) { $("err").textContent = "That key isn't right."; setKey(""); return; }
       if (!r.ok) { $("err").textContent = "The dashboard is unavailable right now. Try again in a minute."; return; }
       const d = await r.json(); setKey(key);
