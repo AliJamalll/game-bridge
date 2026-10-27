@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.6.7</title>
+      <pubDate>Tue, 27 Oct 2026 14:19:58 GMT</pubDate>
+      <sparkle:version>19</sparkle:version>
+      <sparkle:shortVersionString>0.6.7</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>The home screen no longer freezes while it checks your games (an external drive that was asleep could stall it), and games on your Mac show up right away even when an external drive is slow to answer.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.6.7/GameBridge.dmg" sparkle:edSignature="JJX8pvnlitzyg+1rBKIhZPtkV0/4aXOaJtIs8oG1+A/QB9FZjZsE+yiG8RjIivCj9dXezP+mbrCANIto3a8iAg==" length="12077204" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.6.6</title>
       <pubDate>Sat, 24 Oct 2026 19:41:03 GMT</pubDate>
       <sparkle:version>18</sparkle:version>
