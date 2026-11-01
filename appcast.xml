@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.6.8</title>
+      <pubDate>Sun, 01 Nov 2026 14:44:21 GMT</pubDate>
+      <sparkle:version>20</sparkle:version>
+      <sparkle:shortVersionString>0.6.8</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Steam games are now free, forever. Epic Games, GOG and other Windows games stay free for 10 days, then need a plan. Store pages show a lock when a plan is needed.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.6.8/GameBridge.dmg" sparkle:edSignature="OTX3p8x1FwTGAW1vnvTO0MNCo4Tv1VcyZgOLKFfUwtVu500+dBaf1MTAwVQidrtFEgqy07Qyy/U3NRCkzVN4CA==" length="13345954" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.6.7</title>
       <pubDate>Tue, 27 Oct 2026 14:19:58 GMT</pubDate>
       <sparkle:version>19</sparkle:version>
