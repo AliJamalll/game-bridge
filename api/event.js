@@ -5,9 +5,15 @@ import { body as parse, client, rateLimited } from './_security.js';
 
 const DEVICE = /^[0-9a-f]{64}$/;
 const PER_HOUR = 200;   // events one network can send in an hour (a launch sends a few)
+// Every name the app sends (Analytics.track in Sources/); anything else is refused.
+const STORES = ['steam', 'epic', 'gog', 'other'];
 export const EVENTS = ['app_open', 'setup_start', 'setup_done', 'setup_fail', 'steam_launch', 'game_launch',
-  'paywall_view', 'plan_monthly', 'plan_yearly', 'license_activated', 'invite_copied', 'invite_redeemed',
-  'rating_sent', 'feedback_sent', 'uninstall'];
+  'paywall_view', 'plan_monthly', 'plan_yearly', 'plan_lifetime', 'tip_open', 'license_activated', 'invite_copied', 'invite_redeemed',
+  'rating_sent', 'feedback_sent', 'uninstall',
+  'epic_signin', 'epic_browser_signin', 'epic_install', 'epic_launch', 'gog_signin', 'gog_browser_signin', 'gog_install', 'gog_launch',
+  'other_game_added', 'other_game_installer', 'other_game_launch', 'cloud_launch', 'steam_link', 'boot_camp',
+  'renderer_auto', 'renderer_metal', 'renderer_vulkan', 'language_system', 'language_en', 'language_ar',
+  ...STORES.map((s) => `store_${s}`), ...STORES.map((s) => `store_locked_${s}`)];
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
