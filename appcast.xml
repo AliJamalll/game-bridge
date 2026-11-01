@@ -4,6 +4,15 @@
     <title>Game Bridge</title>
     <link>https://game-bridge.vercel.app/appcast.xml</link>
     <item>
+      <title>Version 0.6.9</title>
+      <pubDate>Sun, 01 Nov 2026 15:25:37 GMT</pubDate>
+      <sparkle:version>21</sparkle:version>
+      <sparkle:shortVersionString>0.6.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>More reliable downloads: a stalled download tries again by itself. Clearer error messages for Epic Games.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.6.9/GameBridge.dmg" sparkle:edSignature="OTjSJ84k5y6U7Ig1BPGd5+bLkrKxjE1WSSKhBKSWz2CXf2LRzJBe54IeL6+3V0p6s8n6/XECHWdIwtwFuJ2tAw==" length="13367966" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.6.8</title>
       <pubDate>Sun, 01 Nov 2026 14:44:21 GMT</pubDate>
       <sparkle:version>20</sparkle:version>
