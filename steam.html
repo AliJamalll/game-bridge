@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steam games on Mac — Game Bridge</title>
+  <meta name="description" content="Play your Steam games on Mac. No emulator, no virtual machine, no tech skills: install, sign in to Steam, play. Free for Steam games, no card required.">
+  <meta name="theme-color" content="#131920">
+  <link rel="icon" href="favicon.png" sizes="64x64">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stores.css">
+  <link rel="canonical" href="https://game-bridge.vercel.app/steam">
+  <script src="site.js" defer></script>
+</head>
+<body class="steam">
+  <!-- One icon set: 24px grid, 1.8 stroke, round caps. Play is the only filled glyph, as on Steam. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.6 3 8.4 7 10 4-1.6 7-5.4 7-10V6z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></g></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8m0-4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></g></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h18v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 14 5.5 5h13L21 14"/><path d="M17 17h.01"/></g></symbol>
+    <symbol id="i-update" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v8m0 0-3.2-3.2m3.2 3.2 3.2-3.2"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6.5 7l1 13h9l1-13"/></g></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="i-steam" viewBox="0 0 24 24"><path fill="currentColor" d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-macs" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="9" rx="1.5"/><path d="M1.5 17h16M19 8h3v12h-4"/></g></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="mark.svg" alt="" width="29" height="18"><span class="brand-name">Game Bridge</span></a>
+      <nav aria-label="Stores"><a href="/steam" aria-current="page">Steam</a><a href="/epic">Epic Games</a><a href="/gog">GOG</a><a href="/games">Other games</a><a href="/#pricing">Pricing</a></nav>
+      <button class="menu-btn" type="button" id="menu-open" aria-label="Open menu" aria-controls="side-menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="side-menu" id="side-menu" aria-label="Sections">
+    <div class="side-head">
+      <span class="brand-name">Menu</span>
+      <button class="menu-btn" type="button" id="menu-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <nav class="side-links" aria-label="Stores">
+      <a href="/">Game Bridge home</a><a href="/steam" aria-current="page">Steam</a><a href="/epic">Epic Games</a><a href="/gog">GOG</a><a href="/games">Other games</a>
+    </nav>
+    <nav class="side-links minor" aria-label="Sections">
+      <a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#features">Features</a><a href="/#pricing">Pricing</a><a href="#faq">FAQ</a>
+    </nav>
+  </dialog>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="reel" aria-hidden="true">
+      <!-- Footage from each game's official Steam trailer -->
+      <video class="clip on" src="media/hero-spiderman.mp4" poster="media/hero-spiderman.jpg" muted playsinline loop preload="auto" autoplay></video>
+      <video class="clip" src="media/hero-cod.mp4" poster="media/hero-cod.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero-forza.mp4" poster="media/hero-forza.jpg" muted playsinline loop preload="none"></video>
+      <video class="clip" src="media/hero-fc.mp4" poster="media/hero-fc.jpg" muted playsinline loop preload="none"></video>
+    </div>
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <p class="crumb"><a href="/">Game Bridge</a> / Steam</p>
+      <h1 id="hero-title">Play your Steam games on your Mac.</h1>
+      <p class="marks"><span><svg aria-hidden="true"><use href="#i-steam"/></svg>Windows Steam games</span><span><svg aria-hidden="true"><use href="#i-apple"/></svg>On macOS</span></p>
+      <p class="lead">The Windows games in your Steam library, running on your Mac. <b>Install, sign in to Steam, play.</b> That's the whole setup.</p>
+      <div class="cta">
+        <a class="btn play" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg>Download free</a>
+        <a class="btn ghost" href="/#pricing">See pricing</a>
+      </div>
+      <p class="facts">Free for Steam games, forever. Epic Games, GOG and other games: 10 days free, then from $6 a month.<br>No emulator · No virtual machine · No tech skills needed</p>
+    </div>
+    <div class="wrap shelf-wrap">
+      <p class="shelf-label">Big Steam games, running on Mac: <b id="shelf-name">point at one</b></p>
+      <div class="genres" role="group" aria-label="Filter by genre"></div>
+      <div class="shelf">
+        <button class="cover" type="button" data-app="440" data-art="https://cdn.akamai.steamstatic.com/steam/apps/440/library_hero.jpg" data-title="Team Fortress 2" data-genre="Shooter"><img src="https://cdn.akamai.steamstatic.com/steam/apps/440/library_600x900.jpg" alt="Team Fortress 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="1245620" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_hero.jpg" data-title="Elden Ring" data-genre="Action"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_600x900.jpg" alt="Elden Ring" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="620" data-art="https://cdn.akamai.steamstatic.com/steam/apps/620/library_hero.jpg" data-title="Portal 2" data-genre="Puzzle"><img src="https://cdn.akamai.steamstatic.com/steam/apps/620/library_600x900.jpg" alt="Portal 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="489830" data-art="https://cdn.akamai.steamstatic.com/steam/apps/489830/library_hero.jpg" data-title="Skyrim Special Edition" data-genre="RPG"><img src="https://cdn.akamai.steamstatic.com/steam/apps/489830/library_600x900.jpg" alt="Skyrim Special Edition" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="2050650" data-art="https://cdn.akamai.steamstatic.com/steam/apps/2050650/library_hero.jpg" data-title="Resident Evil 4" data-genre="Horror"><img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/library_600x900.jpg" alt="Resident Evil 4" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="550" data-art="https://cdn.akamai.steamstatic.com/steam/apps/550/library_hero.jpg" data-title="Left 4 Dead 2" data-genre="Shooter"><img src="https://cdn.akamai.steamstatic.com/steam/apps/550/library_600x900.jpg" alt="Left 4 Dead 2" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="292030" data-art="https://cdn.akamai.steamstatic.com/steam/apps/292030/library_hero.jpg" data-title="The Witcher 3: Wild Hunt" data-genre="RPG"><img src="https://cdn.akamai.steamstatic.com/steam/apps/292030/library_600x900.jpg" alt="The Witcher 3: Wild Hunt" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="1551360" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1551360/library_hero.jpg" data-title="Forza Horizon 5" data-genre="Racing"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1551360/library_600x900.jpg" alt="Forza Horizon 5" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="813780" data-art="https://cdn.akamai.steamstatic.com/steam/apps/813780/library_hero.jpg" data-title="Age of Empires II: Definitive Edition" data-genre="Strategy"><img src="https://cdn.akamai.steamstatic.com/steam/apps/813780/library_600x900.jpg" alt="Age of Empires II: Definitive Edition" width="600" height="900"></button>
+        <button class="cover" type="button" data-app="377160" data-art="https://cdn.akamai.steamstatic.com/steam/apps/377160/library_hero.jpg" data-title="Fallout 4" data-genre="RPG"><img src="https://cdn.akamai.steamstatic.com/steam/apps/377160/library_600x900.jpg" alt="Fallout 4" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1364780" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1364780/library_hero.jpg" data-title="Street Fighter 6" data-genre="Fighting"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1364780/library_600x900.jpg" alt="Street Fighter 6" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="526870" data-art="https://cdn.akamai.steamstatic.com/steam/apps/526870/library_hero.jpg" data-title="Satisfactory" data-genre="Survival"><img src="https://cdn.akamai.steamstatic.com/steam/apps/526870/library_600x900.jpg" alt="Satisfactory" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="374320" data-art="https://cdn.akamai.steamstatic.com/steam/apps/374320/library_hero.jpg" data-title="Dark Souls III" data-genre="Action"><img src="https://cdn.akamai.steamstatic.com/steam/apps/374320/library_600x900.jpg" alt="Dark Souls III" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="782330" data-art="https://cdn.akamai.steamstatic.com/steam/apps/782330/library_hero.jpg" data-title="DOOM Eternal" data-genre="Shooter"><img src="https://cdn.akamai.steamstatic.com/steam/apps/782330/library_600x900.jpg" alt="DOOM Eternal" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="739630" data-art="https://cdn.akamai.steamstatic.com/steam/apps/739630/library_hero.jpg" data-title="Phasmophobia" data-genre="Horror"><img src="https://cdn.akamai.steamstatic.com/steam/apps/739630/library_600x900.jpg" alt="Phasmophobia" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1687950" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1687950/library_hero.jpg" data-title="Persona 5 Royal" data-genre="RPG"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1687950/library_600x900.jpg" alt="Persona 5 Royal" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="814380" data-art="https://cdn.akamai.steamstatic.com/steam/apps/814380/library_hero.jpg" data-title="Sekiro: Shadows Die Twice" data-genre="Action"><img src="https://cdn.akamai.steamstatic.com/steam/apps/814380/library_600x900.jpg" alt="Sekiro: Shadows Die Twice" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="244210" data-art="https://cdn.akamai.steamstatic.com/steam/apps/244210/library_hero.jpg" data-title="Assetto Corsa" data-genre="Racing"><img src="https://cdn.akamai.steamstatic.com/steam/apps/244210/library_600x900.jpg" alt="Assetto Corsa" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1326470" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1326470/library_hero.jpg" data-title="Sons of the Forest" data-genre="Survival"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1326470/library_600x900.jpg" alt="Sons of the Forest" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="548430" data-art="https://cdn.akamai.steamstatic.com/steam/apps/548430/library_hero.jpg" data-title="Deep Rock Galactic" data-genre="Shooter"><img src="https://cdn.akamai.steamstatic.com/steam/apps/548430/library_600x900.jpg" alt="Deep Rock Galactic" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1466860" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1466860/library_hero.jpg" data-title="Age of Empires IV" data-genre="Strategy"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1466860/library_600x900.jpg" alt="Age of Empires IV" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="22380" data-art="https://cdn.akamai.steamstatic.com/steam/apps/22380/library_hero.jpg" data-title="Fallout: New Vegas" data-genre="RPG"><img src="https://cdn.akamai.steamstatic.com/steam/apps/22380/library_600x900.jpg" alt="Fallout: New Vegas" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1778820" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1778820/library_hero.jpg" data-title="Tekken 8" data-genre="Fighting"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1778820/library_600x900.jpg" alt="Tekken 8" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="1966720" data-art="https://cdn.akamai.steamstatic.com/steam/apps/1966720/library_hero.jpg" data-title="Lethal Company" data-genre="Horror"><img src="https://cdn.akamai.steamstatic.com/steam/apps/1966720/library_600x900.jpg" alt="Lethal Company" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="582010" data-art="https://cdn.akamai.steamstatic.com/steam/apps/582010/library_hero.jpg" data-title="Monster Hunter: World" data-genre="Action"><img src="https://cdn.akamai.steamstatic.com/steam/apps/582010/library_600x900.jpg" alt="Monster Hunter: World" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="638970" data-art="https://cdn.akamai.steamstatic.com/steam/apps/638970/library_hero.jpg" data-title="Yakuza 0" data-genre="Action"><img src="https://cdn.akamai.steamstatic.com/steam/apps/638970/library_600x900.jpg" alt="Yakuza 0" width="600" height="900" loading="lazy"></button>
+        <button class="cover" type="button" data-app="648800" data-art="https://cdn.akamai.steamstatic.com/steam/apps/648800/library_hero.jpg" data-title="Raft" data-genre="Survival"><img src="https://cdn.akamai.steamstatic.com/steam/apps/648800/library_600x900.jpg" alt="Raft" width="600" height="900" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <figure class="wrap shot">
+      <picture>
+        <video class="tv" data-src="media/app-promo.mp4" poster="media/app-promo-poster.jpg" width="1600" height="900" muted playsinline loop preload="none"
+               aria-label="Game Bridge in action: press Install and it sets up Rosetta 2, Wine, DirectX 11 and Steam for you, your Steam library shows up, press Play and the game starts."></video>
+      </picture>
+      <figcaption>From first open to playing: press Install once, sign in to Steam, then press Play.</figcaption>
+    </figure>
+
+    <section class="wrap" id="library">
+      <div class="head"><h2>Every kind of game in your Steam library.</h2><p>Sign in once and your whole library is there: the worlds, races and battles you already own.</p></div>
+      <div class="gallery">
+        <figure class="vtile wide"><video class="tv" data-src="media/tile-gta.mp4" poster="media/tile-gta.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Explore huge worlds on your Mac</h3><p>Grand Theft Auto V and other big 3D games that use DirectX 11.</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-forza.mp4" poster="media/tile-forza.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Racing</h3><p>Forza Horizon 5</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-doom.mp4" poster="media/tile-doom.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Sci-fi action</h3><p>DOOM Eternal</p></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-space.mp4" poster="media/tile-space.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Space &amp; strategy</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Indie &amp; retro</h3></figcaption></figure>
+        <figure class="vtile"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>With friends</h3><p>Steam chat and friends list.</p></figcaption></figure>
+      </div>
+      <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free.</p>
+    </section>
+
+    <section class="wrap" id="works" hidden>
+      <div class="head"><h2>Works on Game Bridge. Rated by players.</h2><p>After playing, Game Bridge players rate how each game ran. This list updates every few minutes.</p></div>
+      <div class="cards" id="works-grid"></div>
+    </section>
+
+
+    <section class="wrap" id="trailers">
+      <div class="head"><h2>Big Steam games. Watch the trailers.</h2><p>Valve removed the Mac versions of Team Fortress 2, Portal 2 and Left 4 Dead 2 in 2024. Game Bridge runs their Windows versions.</p></div>
+      <div class="theater">
+        <div class="player">
+          <div class="frame" id="tplayer" data-id="N7ZafWA2jd8"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/maxresdefault.jpg" alt="Team Fortress 2 trailer"><span class="playbtn" aria-hidden="true"><svg><use href="#i-play"/></svg></span></div>
+          <p class="now">Now playing: <b id="tnow">Team Fortress 2</b></p>
+        </div>
+        <div class="picks">
+          <button class="pick on" type="button" data-id="N7ZafWA2jd8" data-title="Team Fortress 2" aria-label="Play the Team Fortress 2 trailer"><img src="https://i.ytimg.com/vi/N7ZafWA2jd8/mqdefault.jpg" alt="" loading="lazy"><span><b>Team Fortress 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="A88YiZdXugA" data-title="Portal 2" aria-label="Play the Portal 2 trailer"><img src="https://i.ytimg.com/vi/A88YiZdXugA/mqdefault.jpg" alt="" loading="lazy"><span><b>Portal 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="N1shYxPdGB8" data-title="Left 4 Dead 2" aria-label="Play the Left 4 Dead 2 trailer"><img src="https://i.ytimg.com/vi/N1shYxPdGB8/mqdefault.jpg" alt="" loading="lazy"><span><b>Left 4 Dead 2</b><small>Valve · Mac version removed in 2024</small></span></button>
+          <button class="pick" type="button" data-id="lTjRZ__-278" data-title="Skyrim Special Edition" aria-label="Play the Skyrim Special Edition trailer"><img src="https://i.ytimg.com/vi/lTjRZ__-278/mqdefault.jpg" alt="" loading="lazy"><span><b>Skyrim Special Edition</b><small>Bethesda</small></span></button>
+          <button class="pick" type="button" data-id="1-l29HlKkXU" data-title="The Witcher 3: Wild Hunt" aria-label="Play the The Witcher 3: Wild Hunt trailer"><img src="https://i.ytimg.com/vi/1-l29HlKkXU/mqdefault.jpg" alt="" loading="lazy"><span><b>The Witcher 3: Wild Hunt</b><small>CD PROJEKT RED</small></span></button>
+          <button class="pick" type="button" data-id="X5aJfebzkrM" data-title="Fallout 4" aria-label="Play the Fallout 4 trailer"><img src="https://i.ytimg.com/vi/X5aJfebzkrM/mqdefault.jpg" alt="" loading="lazy"><span><b>Fallout 4</b><small>Bethesda</small></span></button>
+          <button class="pick" type="button" data-id="0J4u1FD87FM" data-title="Dark Souls III" aria-label="Play the Dark Souls III trailer"><img src="https://i.ytimg.com/vi/0J4u1FD87FM/mqdefault.jpg" alt="" loading="lazy"><span><b>Dark Souls III</b><small>Bandai Namco</small></span></button>
+        </div>
+      </div>
+      <p class="note">Trailers belong to their publishers and play from YouTube. Game Bridge is not affiliated with them. Games that use anti-cheat or DirectX 12 may not run, so try your own library first: it&#39;s free.</p>
+    </section>
+
+    <section class="wrap" id="features">
+      <div class="head"><h2>Made so you never have to think about it.</h2><p>Game Bridge takes care of the technical side, so all you do is play.</p></div>
+      <div class="feature-lead">
+        <video class="tv" data-src="media/tile-setup.mp4" poster="media/tile-setup.jpg" muted playsinline loop preload="none" aria-hidden="true"></video>
+        <div>
+          <h3>One-click setup</h3>
+          <p>Press Install once. Game Bridge downloads and sets up everything Steam needs to run on your Mac. Anything already on your Mac is reused, not downloaded again.</p>
+          <ul class="ticks"><li>A few hundred MB to download, only once</li><li>A progress bar for every step</li><li>No passwords, no Terminal</li></ul>
+        </div>
+      </div>
+      <ul class="features">
+        <li><svg aria-hidden="true"><use href="#i-steam"/></svg><div><h3>Official Steam, from Valve</h3><p>Steam downloads straight from Valve's servers. Sign in to your own account and play what you already own.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-cube"/></svg><div><h3>Big 3D games</h3><p>Built-in support for DirectX 9, 10 and 11 games.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-sync"/></svg><div><h3>Stays working</h3><p>Fixes are re-applied after every Steam update.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-drive"/></svg><div><h3>External drives</h3><p>Install games on a plugged-in drive. Your Mac stays free.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-update"/></svg><div><h3>Automatic updates</h3><p>New versions arrive by themselves. You're asked first.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-trash"/></svg><div><h3>Clean uninstall</h3><p>One button removes everything Game Bridge added, and nothing that was there before.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-macs"/></svg><div><h3>2 Macs per plan</h3><p>Use it on your laptop and your desktop. Move it to a new Mac in one click.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="wrap" id="pricing">
+      <div class="strip">
+        <div><h3>Steam is free</h3><p>Your Steam games cost nothing, forever. Epic Games, GOG and other games are free for 10 days, then $6 a month, on 2 Macs.</p></div>
+        <div class="cta"><a class="btn play" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg>Download free</a><a class="btn ghost" href="/#pricing">See plans</a></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="more">
+      <div class="head"><h2>Also in Game Bridge</h2><p>The same app: free for 10 days, then one plan for all three.</p></div>
+      <div class="other-stores">
+        <a class="store" href="/epic"><video class="tv" data-src="media/tile-portal.mp4" poster="media/tile-portal.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><span class="store-body"><span class="store-tag">Epic Games</span><h3>Epic games on Mac</h3><span class="more">Learn more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+        <a class="store" href="/gog"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><span class="store-body"><span class="store-tag">GOG</span><h3>GOG games on Mac</h3><span class="more">Learn more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+        <a class="store" href="/games"><video class="tv" data-src="media/hero1.mp4" poster="media/hero1.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><span class="store-body"><span class="store-tag">Other games</span><h3>Any Windows game</h3><span class="more">Learn more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="wrap">
+        <h2>Ready to play?</h2>
+        <p>Free for Steam games, no card required. Open the DMG and drag Game Bridge to Applications.</p>
+        <a class="btn play big" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg>Download for MacBook (.dmg)</a>
+        <p class="mac-only">On your phone? Game Bridge runs on a Mac, so open this page on your Mac to install it.</p>
+        <p class="reqs">Version 0.6.7 (beta) · macOS 13 or later · Apple Silicon (M1 to M5) &amp; Intel · Signed &amp; notarized by Apple · About 1 GB free space for Steam</p>
+        <p class="note">By downloading you agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      </div>
+    </section>
+
+    <section class="wrap" id="faq">
+      <div class="head"><h2>Questions</h2></div>
+      <div class="faq">
+        <details><summary>Is it an emulator or a virtual machine?</summary><p>Neither. Game Bridge uses Wine, a compatibility layer that lets Windows apps run directly on macOS, plus DirectX support for games. There's no copy of Windows to install or pay for.</p></details>
+        <details><summary>Do I need to buy my games again?</summary><p>No. You sign in to your own Steam account and use the games you already own.</p></details>
+        <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles with very new graphics features may not start. Games whose anti-cheat doesn't run on a Mac, like Apex Legends or Rainbow Six Siege, are marked in the app, which offers to play them on GeForce NOW where it's available, or to stream them from your own Windows PC with Steam Link. Try your games during the free trial before subscribing.</p></details>
+        <details><summary>What&#39;s free, and what do I pay for?</summary><p>Steam games are free, forever, with every feature. Epic Games, GOG and other Windows games are free for 10 days; after that they need a monthly or yearly plan, while Steam stays free.</p></details>
+        <details><summary>Can I install games on an external drive?</summary><p>Yes. Plug it in, open Steam from Game Bridge, then go to Steam → Settings → Storage → Add Drive.</p></details>
+        <details><summary>Is Game Bridge made by Valve?</summary><p>No. Game Bridge is an independent app and is not affiliated with, endorsed by or sponsored by Valve Corporation. Steam is downloaded directly from Valve's servers.</p></details>
+        <details><summary>How do I cancel or uninstall?</summary><p>Cancel from the link in your receipt email at any time. To remove the app, use Game Bridge → Uninstall Game Bridge. It removes only what Game Bridge installed.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="links stores-links"><a href="/">Game Bridge</a><a href="/steam">Steam games on Mac</a><a href="/epic">Epic games on Mac</a><a href="/gog">GOG games on Mac</a><a href="/games">Other Windows games on Mac</a></div>
+    <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
+    <p>Background videos from Pexels.</p>
+    <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Apple, the Apple logo and macOS are trademarks of Apple Inc. Game Bridge is not affiliated with, or endorsed by, Valve or Apple.</p>
+  </footer>
+</body>
+</html>

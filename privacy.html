@@ -13,10 +13,17 @@
   <div class="wrap legal">
     <header class="top"><a class="brand" href="./"><img src="mark.svg" alt="" width="29" height="18">Game Bridge</a></header>
     <h1>Privacy Policy</h1>
-    <p>Last updated: October 24, 2026</p>
+    <p>Last updated: October 31, 2026</p>
 
     <h2>What the App collects</h2>
-    <p>Game Bridge does not collect analytics, and it never sees your Steam username, password or games. Your Steam sign-in happens inside the Steam client, directly with Valve.</p>
+    <p>Game Bridge never sees your store usernames or passwords, and it doesn't send the list of games you own to us.</p>
+    <ul>
+      <li><b>Steam:</b> you sign in inside the Steam client, directly with Valve.</li>
+      <li><b>Epic Games:</b> you sign in on Epic's own page, shown in a window of the App. Epic gives the App a one-time code, which it trades for a sign-in token with Epic through Legendary.</li>
+      <li><b>GOG:</b> you sign in on GOG's own page in your browser and paste the address it ends on into the App. The App trades the code in it for a sign-in token with GOG through gogdl, and reads your list of owned Windows games from GOG's servers.</li>
+    </ul>
+    <p>Epic and GOG sign-in tokens are stored only on your Mac, in Game Bridge's folder in ~/Library/Application Support. They are never sent to us. Signing out in the App, or uninstalling it, deletes them.</p>
+    <p>Games you add on the Other games page stay on your Mac: their names and file locations are not sent to us.</p>
 
     <h2>Free trial</h2>
     <p>So the free trial can't be restarted by reinstalling, the App sends our server a one-way hash (SHA-256) of your Mac's hardware ID, together with the date your trial started. The hash can't be turned back into the hardware ID and isn't linked to your name, email or Apple ID. We keep only the hash and the trial start date. Your IP address is seen by our hosting provider (Vercel) as part of the request.</p>
@@ -34,7 +41,7 @@
     <p>When you claim a founder seat or use an invite code, our server records your country and a salted one-way hash of your IP address, so one network can't claim many free seats or rewards. For the same reason the hash is also kept with game ratings, and most requests to our server are counted per hash for one hour (those counts are deleted daily). The hash can't be turned back into your IP address, and we never store the address itself. Our hosting provider (Vercel) processes IP addresses to deliver the website and API.</p>
 
     <h2>Usage counts</h2>
-    <p>To see where people get stuck, the App counts a few steps (for example "setup finished", "Steam opened", "saw the pricing screen"), once per Mac per day, using a shortened one-way hash of your Mac's hardware ID. No game names, files, screenshots or personal data are sent. You can turn this off in Game Bridge → Tools → Send feedback.</p>
+    <p>To see where people get stuck, the App counts a few steps (for example "setup finished", "Steam opened", "saw the pricing screen"), once per Mac per day, using a shortened one-way hash of your Mac's hardware ID. Store steps are counted the same way (for example "signed in to Epic", "installed a GOG game"). No game names, files, screenshots or personal data are sent. You can turn this off in Game Bridge → Tools → Send feedback.</p>
 
     <h2>Crash and error reports</h2>
     <p>When the App crashes, or setup, Steam or a game fails to start or crashes, the App sends a report to Sentry (sentry.io, servers in the United States), which we use to find and fix bugs. A report holds what went wrong (for a crash, where in the App's code it happened), the App and macOS version, your Mac's model, a random ID made for this install, recent lines of the App's log, and, for a crashed game, the name of the Windows program and the game's Steam ID. Your user name and home folder are removed from the log lines first. Sentry sees your IP address when a report arrives and keeps only the approximate location from it (country and city), not the address itself. Reports don't include your files, screenshots or Steam account. You can turn this off in Game Bridge → Tools → Send feedback.</p>
@@ -49,7 +56,7 @@
     <p>When you activate a license, the App sends your license key, your Mac's name and the same one-way hash of your Mac's hardware ID to our server, which verifies the key with Polar's license service (polar.sh) and returns a signed confirmation. The App re-checks the license periodically. We don't store license keys. To limit repeated attempts, our server records a salted one-way hash of your IP address for each check (see "Security and fraud prevention" above).</p>
 
     <h2>Downloads</h2>
-    <p>During setup the App downloads Wine from GitHub and the Steam installer from Valve. Those services receive standard request information such as your IP address.</p>
+    <p>During setup the App downloads Wine from GitHub and the Steam installer from Valve. The first time you use Epic Games or GOG, it downloads Legendary or gogdl from GitHub. Games download from the store you install them from. Cover art comes from Steam's and GOG's image servers. Once a day the App downloads a public list of game compatibility notes from gethighball.com. Those services receive standard request information such as your IP address.</p>
 
     <h2>Purchases</h2>
     <p>Orders are handled by Polar as merchant of record. We receive your email address and order details to provide support; we do not receive your full card details. See Polar's privacy policy for how they process payment data.</p>

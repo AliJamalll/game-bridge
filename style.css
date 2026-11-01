@@ -207,9 +207,9 @@ main > section, main > section.wrap { margin-top: 112px; }
   border-left: 2px solid var(--go); border-bottom: 2px solid var(--go); transform: rotate(-45deg); }
 
 /* Pricing */
-.pricing { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; align-items: stretch; }
-.includes { padding: 28px 28px 28px 0; border-top: 1px solid var(--stroke); }
-.includes h3 { font-size: 21px; margin: 0; font-weight: 700; }
+.pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
+.pricing-note { margin: 16px 0 0; color: var(--dim); font-size: 14px; max-width: 72ch; }
+.pricing-note #regional { color: var(--go); font-weight: 600; }
 .plan { background: var(--tile); border: 1px solid var(--stroke); padding: 28px; display: flex; flex-direction: column;
   transition: transform .18s ease, box-shadow .18s ease; }
 .plan:hover { border-color: rgba(255, 255, 255, 0.22); }
@@ -293,7 +293,6 @@ footer p { margin: 4px 0; }
   .vtile.wide { grid-column: span 2; grid-row: span 1; }
   .theater, .feature-lead, .pricing { grid-template-columns: 1fr; }
   .picks { contain: none; min-height: 0; max-height: 360px; }
-  .includes { padding-right: 0; }
   .download { padding: 64px 0; }
   footer.wrap { margin-top: 72px; }
 }
@@ -349,11 +348,11 @@ footer p { margin: 4px 0; }
   .features h3 { font-size: 16px; }
   .features p { font-size: 15px; }
 
-  /* Pricing: the plans come first, the yearly one on top */
+  /* Pricing: free first, then the yearly plan */
+  .plan.free { order: -3; }
   .plan.best { order: -2; }
   .plan { order: -1; padding: 22px; }
   .plan:hover { transform: none; box-shadow: none; }
-  .includes { padding-top: 20px; }
   .price { font-size: 54px; }
 
   .download { padding: 48px 0; }

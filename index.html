@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='impact-site-verification' value='bfaece7a-ef5e-4cb8-a240-a81ef011d740'>
   <title>Game Bridge — Play Steam games on your Mac</title>
-  <meta name="description" content="Play your Steam games on Mac. No emulator, no virtual machine, no tech skills: install, sign in to Steam, play. 10 days free, no card required.">
+  <meta name="description" content="Play your Steam games on Mac. No emulator, no virtual machine, no tech skills: install, sign in to Steam, play. Free for Steam games, no card required.">
   <meta name="theme-color" content="#131920">
   <link rel="icon" href="favicon.png" sizes="64x64">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stores.css">
 </head>
 <body>
   <!-- One icon set: 24px grid, 1.8 stroke, round caps. Play is the only filled glyph, as on Steam. -->
@@ -33,6 +34,7 @@
   <header class="topbar">
     <div class="wrap">
       <a class="brand" href="./"><img src="mark.svg" alt="" width="29" height="18"><span class="brand-name">Game Bridge</span></a>
+      <nav aria-label="Stores"><a href="/steam">Steam</a><a href="/epic">Epic Games</a><a href="/gog">GOG</a><a href="/games">Other games</a><a href="#pricing">Pricing</a></nav>
       <button class="menu-btn" type="button" id="menu-open" aria-label="Open menu" aria-controls="side-menu" aria-expanded="false">
         <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -46,7 +48,10 @@
         <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
     </div>
-    <nav class="side-links" aria-label="Sections">
+    <nav class="side-links" aria-label="Stores">
+      <a href="/steam">Steam</a><a href="/epic">Epic Games</a><a href="/gog">GOG</a><a href="/games">Other games</a>
+    </nav>
+    <nav class="side-links minor" aria-label="Sections">
       <a href="#library">Games</a><a href="#trailers">Trailers</a><a href="#deals" class="deals-link" hidden>Deals</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
     </nav>
   </dialog>
@@ -69,10 +74,10 @@
       <p class="marks"><span><svg aria-hidden="true"><use href="#i-steam"/></svg>Windows Steam games</span><span><svg aria-hidden="true"><use href="#i-apple"/></svg>On macOS</span></p>
       <p class="lead">The Windows games in your Steam library, running on your Mac. <b>Install, sign in to Steam, play.</b> That's the whole setup.</p>
       <div class="cta">
-        <a class="btn play" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg>Download free trial</a>
+        <a class="btn play" href="#download"><svg aria-hidden="true"><use href="#i-down"/></svg>Download free</a>
         <a class="btn ghost" href="#pricing">See pricing</a>
       </div>
-      <p class="facts">10 days free, no card. Then $6 a month or $50 a year.<br>No emulator · No virtual machine · No tech skills needed</p>
+      <p class="facts">Free for Steam games, forever. Epic Games, GOG and other games: 10 days free, then from $6 a month.<br>No emulator · No virtual machine · No tech skills needed</p>
     </div>
     <div class="wrap shelf-wrap">
       <p class="shelf-label">Big Steam games, running on Mac: <b id="shelf-name">point at one</b></p>
@@ -128,7 +133,7 @@
         <figure class="vtile"><video class="tv" data-src="media/tile-arcade.mp4" poster="media/tile-arcade.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>Indie &amp; retro</h3></figcaption></figure>
         <figure class="vtile"><video class="tv" data-src="media/tile-tournament.mp4" poster="media/tile-tournament.jpg" muted playsinline loop preload="none" aria-hidden="true"></video><figcaption><h3>With friends</h3><p>Steam chat and friends list.</p></figcaption></figure>
       </div>
-      <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free for 10 days.</p>
+      <p class="note">Not every game runs: titles with anti-cheat or very new graphics may not start. Try yours free.</p>
     </section>
 
     <section class="wrap" id="works" hidden>
@@ -159,7 +164,7 @@
           <button class="pick" type="button" data-id="0J4u1FD87FM" data-title="Dark Souls III" aria-label="Play the Dark Souls III trailer"><img src="https://i.ytimg.com/vi/0J4u1FD87FM/mqdefault.jpg" alt="" loading="lazy"><span><b>Dark Souls III</b><small>Bandai Namco</small></span></button>
         </div>
       </div>
-      <p class="note">Trailers belong to their publishers and play from YouTube. Game Bridge is not affiliated with them. Games that use anti-cheat or DirectX 12 may not run, so try your own library free for 10 days.</p>
+      <p class="note">Trailers belong to their publishers and play from YouTube. Game Bridge is not affiliated with them. Games that use anti-cheat or DirectX 12 may not run, so try your own library first: it&#39;s free.</p>
     </section>
 
     <section class="wrap" id="features">
@@ -179,12 +184,12 @@
         <li><svg aria-hidden="true"><use href="#i-drive"/></svg><div><h3>External drives</h3><p>Install games on a plugged-in drive. Your Mac stays free.</p></div></li>
         <li><svg aria-hidden="true"><use href="#i-update"/></svg><div><h3>Automatic updates</h3><p>New versions arrive by themselves. You're asked first.</p></div></li>
         <li><svg aria-hidden="true"><use href="#i-trash"/></svg><div><h3>Clean uninstall</h3><p>One button removes everything Game Bridge added, and nothing that was there before.</p></div></li>
-        <li><svg aria-hidden="true"><use href="#i-macs"/></svg><div><h3>2 Macs per subscription</h3><p>Use it on your laptop and your desktop. Move it to a new Mac in one click.</p></div></li>
+        <li><svg aria-hidden="true"><use href="#i-macs"/></svg><div><h3>2 Macs per plan</h3><p>Use it on your laptop and your desktop. Move it to a new Mac in one click.</p></div></li>
       </ul>
     </section>
 
     <section class="wrap" id="pricing">
-      <div class="head"><h2>Simple pricing</h2><p>Start with 10 free days. Subscribe only if your games run the way you want.</p></div>
+      <div class="head"><h2>Simple pricing</h2><p>Steam is free, forever. Epic Games, GOG and other games are free for 10 days; pick a plan only if they run the way you want.</p></div>
       <div class="offer founders" id="founders" hidden>
         <span class="b-text"><b>The first 500 players get Game Bridge free for life.</b> No code needed: install it while seats last.</span>
         <span class="f-stats">
@@ -194,40 +199,42 @@
         </span>
       </div>
       <div class="pricing">
-        <div class="includes">
-          <h3>Every plan includes everything, on 2 Macs</h3>
+        <div class="plan free">
+          <h3>Free</h3>
+          <div class="price">$0<span>forever</span></div>
+          <p>Your Steam games, on 2 Macs</p>
           <ul class="ticks">
             <li>Play the Windows Steam games you already own</li>
             <li>Steam keeps working after its updates, automatically</li>
             <li>Every Game Bridge update included</li>
-            <li>Use one subscription on 2 Macs</li>
-            <li>Cancel anytime from your receipt email</li>
+            <li>Epic Games, GOG and other games free for 10 days</li>
           </ul>
-          <p class="note">After you subscribe, your license key arrives by email. Paste it into Game Bridge to unlock it. Prices in USD; taxes may apply at checkout.</p>
+          <a class="btn play" href="#download">Download free</a>
         </div>
         <div class="plan">
           <h3>Monthly</h3>
           <div class="price">$6<span>/ month</span></div>
           <p>Billed every month</p>
-          <ul class="ticks"><li>Everything included</li><li>Cancel anytime</li></ul>
+          <ul class="ticks"><li>Everything in Free</li><li>Epic Games, GOG and other games</li><li>Cancel anytime</li></ul>
           <a class="btn ghost" href="#download">Start free trial</a>
-          <a class="sub" href="https://buy.polar.sh/polar_cl_ynXvnukoEaEQUIqNQ3CpuLeob7SaWtkUZClLr0aEEEZ">or subscribe monthly now</a>
+          <a class="sub" href="/api/checkout?plan=monthly">or subscribe monthly now</a>
         </div>
         <div class="plan best">
           <h3>Yearly <span class="tag">Save 30%</span></h3>
           <div class="price">$50<span>/ year</span></div>
           <p>Just $4.17 a month</p>
-          <ul class="ticks"><li>Everything included</li><li class="save">Save $22 a year</li><li>Cancel anytime</li></ul>
+          <ul class="ticks"><li>Everything in Free</li><li>Epic Games, GOG and other games</li><li class="save">Save $22 a year</li><li>Cancel anytime</li></ul>
           <a class="btn sub-btn" href="#download">Start free trial</a>
-          <a class="sub" href="https://buy.polar.sh/polar_cl_D91KMyZfUvxdmtPjWtK6o9lNXSX5J5O2KoAuF4OmkFT">or subscribe yearly now</a>
+          <a class="sub" href="/api/checkout?plan=yearly">or subscribe yearly now</a>
         </div>
       </div>
+      <p class="pricing-note"><span id="regional" hidden></span><span id="lifetime-offer" hidden>Rather pay once? <a href="/api/checkout?plan=lifetime">Get a lifetime license for $59</a>. </span>After you subscribe, your license key arrives by email. Paste it into Game Bridge to unlock every store. Prices in USD; taxes may apply at checkout.</p>
     </section>
 
     <section class="download" id="download">
       <div class="wrap">
         <h2>Ready to play?</h2>
-        <p>Free for 10 days, no card required. Open the DMG and drag Game Bridge to Applications.</p>
+        <p>Free for Steam games, no card required. Open the DMG and drag Game Bridge to Applications.</p>
         <a class="btn play big" href="https://github.com/AliJamalll/game-bridge/releases/latest/download/GameBridge.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg>Download for MacBook (.dmg)</a>
         <p class="mac-only">On your phone? Game Bridge runs on a Mac, so open this page on your Mac to install it.</p>
         <p class="reqs">Version 0.6.7 (beta) · macOS 13 or later · Apple Silicon (M1 to M5) &amp; Intel · Signed &amp; notarized by Apple · About 1 GB free space for Steam</p>
@@ -241,7 +248,7 @@
         <details><summary>Is it an emulator or a virtual machine?</summary><p>Neither. Game Bridge uses Wine, a compatibility layer that lets Windows apps run directly on macOS, plus DirectX support for games. There's no copy of Windows to install or pay for.</p></details>
         <details><summary>Do I need to buy my games again?</summary><p>No. You sign in to your own Steam account and use the games you already own.</p></details>
         <details><summary>Will every Windows game work?</summary><p>Not every game. Many games run well, but titles with very new graphics features may not start. Games whose anti-cheat doesn't run on a Mac, like Apex Legends or Rainbow Six Siege, are marked in the app, which offers to play them on GeForce NOW where it's available, or to stream them from your own Windows PC with Steam Link. Try your games during the free trial before subscribing.</p></details>
-        <details><summary>What does the trial include?</summary><p>Everything. After 10 days, choose a monthly or yearly subscription to keep using Game Bridge.</p></details>
+        <details><summary>What&#39;s free, and what do I pay for?</summary><p>Steam games are free, forever, with every feature. Epic Games, GOG and other Windows games are free for 10 days; after that they need a monthly or yearly plan, while Steam stays free.</p></details>
         <details><summary>Can I install games on an external drive?</summary><p>Yes. Plug it in, open Steam from Game Bridge, then go to Steam → Settings → Storage → Add Drive.</p></details>
         <details><summary>Is Game Bridge made by Valve?</summary><p>No. Game Bridge is an independent app and is not affiliated with, endorsed by or sponsored by Valve Corporation. Steam is downloaded directly from Valve's servers.</p></details>
         <details><summary>How do I cancel or uninstall?</summary><p>Cancel from the link in your receipt email at any time. To remove the app, use Game Bridge → Uninstall Game Bridge. It removes only what Game Bridge installed.</p></details>
@@ -250,11 +257,21 @@
   </main>
 
   <footer class="wrap">
-    <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a></div>
+    <div class="links stores-links"><a href="/steam">Steam games on Mac</a><a href="/epic">Epic games on Mac</a><a href="/gog">GOG games on Mac</a><a href="/games">Other Windows games on Mac</a></div>
+    <div class="links"><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="mailto:ali.jamal.software@gmail.com">Contact</a><a id="tip-link" href="/api/checkout?plan=tip" hidden>Support Game Bridge</a></div>
     <p>Background videos from Pexels.</p>
     <p>© 2026 Game Bridge. Steam and the Steam logo are trademarks of Valve Corporation. Apple, the Apple logo and macOS are trademarks of Apple Inc. Game Bridge is not affiliated with, or endorsed by, Valve or Apple.</p>
   </footer>
   <script>
+    // Regional price, lifetime license and the support link appear once /api/checkout says they're set up.
+    fetch("/api/checkout?plan=info").then(function (r) { return r.ok ? r.json() : null; }).then(function (info) {
+      if (!info) return;
+      const regional = document.getElementById("regional");
+      if (info.regional && regional) { regional.textContent = "Prices in your country are " + info.percent + "% lower at checkout. "; regional.hidden = false; }
+      if (info.lifetime) document.getElementById("lifetime-offer").hidden = false;
+      if (info.tip) document.getElementById("tip-link").hidden = false;
+    }).catch(function () {});
+
     // Side menu: a modal drawer, so Esc and focus trapping come from <dialog>; clicking the backdrop or a link closes it.
     (function () {
       const menu = document.getElementById("side-menu");
