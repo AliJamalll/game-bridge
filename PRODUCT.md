@@ -17,7 +17,7 @@ The home page serves the everyday player first; store pages carry the detail the
 
 ## Product Purpose
 
-Game Bridge is a paid macOS app that runs Windows games through Wine. One app holds four libraries, each on its own page: Steam (the official Windows Steam client), Epic Games (through Legendary), GOG (through gogdl) and Other games (any .exe or installer). The site's job is to make a visitor understand that in seconds, find their store, and start the free trial.
+Game Bridger is a paid macOS app that runs Windows games through Wine. One app holds four libraries, each on its own page: Steam (the official Windows Steam client), Epic Games (through Legendary), GOG (through gogdl) and Other games (any .exe or installer). The site's job is to make a visitor understand that in seconds, find their store, and start the free trial.
 
 ## Positioning
 
@@ -38,7 +38,7 @@ Visitors arrive from search ("play Steam games on Mac", "Epic games on Mac"), fr
 
 ## Brand Commitments
 
-- Name: Game Bridge.
+- Name: Game Bridger.
 - The gamepad mark (`site/mark.svg`, same shapes as the app icon) stays.
 - The pink-to-violet gradient of the app icon and download button (#f876da to #9358e8) stays as the brand color.
 - English site copy; the app itself also ships Arabic.

@@ -1,4 +1,4 @@
-// Players rate how a game ran on Game Bridge: one vote per Mac per game.
+// Players rate how a game ran on Game Bridger: one vote per Mac per game.
 // Stored as empty marker blobs whose path holds everything, so totals need only a listing:
 //   ratings/<appid>/<device>.<up|down>   and   games/<appid>/<url-encoded name>
 // The name shown on the website comes from Steam, not from the app, and one network can vote for a game

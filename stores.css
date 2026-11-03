@@ -3,7 +3,7 @@
    cards that link to the other stores. Loaded after style.css; the home page loads it for the store links. */
 
 /* Epic Games and GOG wear their store's colors through the body class; the home page, Steam and Other games keep
-   Game Bridge's pink and violet. --accent-rgb is --sub-text as numbers, for the tinted borders and highlights. */
+   Game Bridger's pink and violet. --accent-rgb is --sub-text as numbers, for the tinted borders and highlights. */
 body.epic { --bg: #101010; --bar: #121212; --tile: #1a1a1a; --tile-hi: #242424; --bg-rgb: 16, 16, 16;
   --play-a: #ffffff; --play-b: #dcdcdc; --sub: #0074e4; --sub-text: #4fb4ff; --accent-rgb: 79, 180, 255; --glow: 255, 255, 255; }
 body.gog { --bg: #120f17; --bar: #15111b; --tile: #1c1724; --tile-hi: #261f31; --bg-rgb: 18, 15, 23;

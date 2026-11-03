@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       if (referrer === device) return res.status(200).json({ error: "That's your own invite code. Send it to a friend!" });
       if (await exists(`invites/redeemed/${device}`)) return res.status(200).json({ error: 'This Mac already used an invite code.' });
       const start = Number(await text(`trials/${device}`));
-      if (!start) return res.status(200).json({ error: 'Open Game Bridge once while online, then try the code again.' });
+      if (!start) return res.status(200).json({ error: 'Open Game Bridger once while online, then try the code again.' });
       if (Date.now() / 1000 - start > NEW_PLAYER_DAYS * 86400) return res.status(200).json({ error: 'Invite codes are for new players.' });
       // Registrations from before this check hold "1" instead of the inviter's network.
       const owner = await text(owners[0].pathname).then(t => { try { return JSON.parse(t); } catch { return null; } });

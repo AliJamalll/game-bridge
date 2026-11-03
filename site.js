@@ -69,7 +69,7 @@ const EPIC_CREATOR_CODE = "";
       const note = document.createElement("small");
       note.className = "shelf-note";
       note.textContent = (creator ? "Support us with creator code " + EPIC_CREATOR_CODE + " at checkout. " : "")
-        + (shop.paid ? "Store links may earn Game Bridge a commission." : "");
+        + (shop.paid ? "Store links may earn Game Bridger a commission." : "");
       name.parentNode.appendChild(note);
     }
   }

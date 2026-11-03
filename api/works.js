@@ -1,4 +1,4 @@
-// Public totals of player ratings: which games run well on Game Bridge.
+// Public totals of player ratings: which games run well on Game Bridger.
 import { list } from '@vercel/blob';
 
 async function listAll(prefix) {

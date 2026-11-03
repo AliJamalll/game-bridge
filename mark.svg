@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="210 375 580 365">
-  <!-- The Game Bridge gamepad: white body and grips, navy D-pad, four colored face buttons.
+  <!-- The Game Bridger gamepad: white body and grips, navy D-pad, four colored face buttons.
        Same shapes as the app icon drawn by tools/make-icon.swift, without the background. -->
   <g fill="#fff">
     <rect x="220" y="385" width="560" height="250" rx="120"/>

@@ -1,4 +1,4 @@
-// Game deals for the website and app: the cheapest current price for games that run on Game Bridge.
+// Game deals for the website and app: the cheapest current price for games that run on Game Bridger.
 // Prices come from CheapShark (free API; please keep the credit on the page). Links use our affiliate tag
 // for a store when AFFILIATE_<storeID> is set in Vercel (a URL template with {title} and/or {steamAppID});
 // otherwise they go through CheapShark's own link to the store.

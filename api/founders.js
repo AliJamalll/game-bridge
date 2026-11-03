@@ -1,4 +1,4 @@
-// Founders offer: the first 500 Macs, or until the deadline, get Game Bridge free for life.
+// Founders offer: the first 500 Macs, or until the deadline, get Game Bridger free for life.
 // GET  -> { claimed, cap, endsAt, open }                    (public, for the website counter; cached for a minute)
 // POST { device } -> { founder, signature? , claimed, cap, open }
 // A seat is an empty blob "founders/<device>". The signature (Ed25519 over "gamebridge-founder:<device>",
