@@ -4,6 +4,15 @@
     <title>Game Bridger</title>
     <link>https://gamebridger.com/appcast.xml</link>
     <item>
+      <title>Version 0.7.2</title>
+      <pubDate>Wed, 04 Nov 2026 15:35:21 GMT</pubDate>
+      <sparkle:version>24</sparkle:version>
+      <sparkle:shortVersionString>0.7.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>GOG: sign in with your browser and Game Bridger connects by itself (Touch ID and saved accounts work). A GOG store shelf with popular and free games, marked Runs, May not run or Won&#x27;t run on Mac. Fixes the GOG library sometimes loading empty.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.7.2/GameBridge.dmg" sparkle:edSignature="9SzLiIiT2hKXJALYgs08F2WPtNtfdUdAUuQwu31iyJqs7oalYrd5PFQjM++6cSxcx/EPGOI0qfvMd3WTYiY3CQ==" length="13621931" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.7.1</title>
       <pubDate>Tue, 03 Nov 2026 16:11:53 GMT</pubDate>
       <sparkle:version>23</sparkle:version>
