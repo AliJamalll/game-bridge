@@ -40,6 +40,9 @@
     <h2>Security and fraud prevention</h2>
     <p>When you claim a founder seat or use an invite code, our server records your country and a salted one-way hash of your IP address, so one network can't claim many free seats or rewards. For the same reason the hash is also kept with game ratings, and most requests to our server are counted per hash for one hour (those counts are deleted daily). The hash can't be turned back into your IP address, and we never store the address itself. Our hosting provider (Vercel) processes IP addresses to deliver the website and API.</p>
 
+    <h2>Website visitor counter</h2>
+    <p>The website shows how many people are online now, today and in total. To count them, each visit sends our server a salted one-way hash of your network address; we keep only that hash (no cookies, no raw IP address, no browsing history) and show only the totals.</p>
+
     <h2>Usage counts</h2>
     <p>To see where people get stuck, the App counts a few steps (for example "setup finished", "Steam opened", "saw the pricing screen"), once per Mac per day, using a shortened one-way hash of your Mac's hardware ID. Store steps are counted the same way (for example "signed in to Epic", "installed a GOG game"). No game names, files, screenshots or personal data are sent. You can turn this off in Game Bridger → Tools → Send feedback.</p>
 
