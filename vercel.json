@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
-  "rewrites": [{ "source": "/api/visit", "destination": "/api/event?visit=1" }],
+  "rewrites": [
+    { "source": "/api/visit", "destination": "/api/event?visit=1" },
+    { "source": "/api/live", "destination": "/api/event?live=1" }
+  ],
   "crons": [{ "path": "/api/cleanup", "schedule": "0 4 * * *" }],
   "headers": [
     {

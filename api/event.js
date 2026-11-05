@@ -3,6 +3,7 @@
 import { put } from '@vercel/blob';
 import { body as parse, client, rateLimited } from './_security.js';
 import visit from './_visit.js';
+import live from './_live.js';
 
 const DEVICE = /^[0-9a-f]{64}$/;
 const PER_HOUR = 200;   // events one network can send in an hour (a launch sends a few)
@@ -17,6 +18,7 @@ export const EVENTS = ['app_open', 'setup_start', 'setup_done', 'setup_fail', 's
   ...STORES.map((s) => `store_${s}`), ...STORES.map((s) => `store_locked_${s}`)];
 
 export default async function handler(req, res) {
+  if (req.query?.live) return live(req, res);     // /api/live: Macs with the app open now
   if (req.query?.visit) return visit(req, res);   // /api/visit (vercel.json rewrite): the website's live visitor counter
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
