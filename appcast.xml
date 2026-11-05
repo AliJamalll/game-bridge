@@ -4,6 +4,15 @@
     <title>Game Bridger</title>
     <link>https://gamebridger.com/appcast.xml</link>
     <item>
+      <title>Version 0.7.3</title>
+      <pubDate>Thu, 05 Nov 2026 13:07:16 GMT</pubDate>
+      <sparkle:version>25</sparkle:version>
+      <sparkle:shortVersionString>0.7.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>See how many Macs have Game Bridger open right now: a live count in the bottom bar. It only counts Macs with usage sharing on, and keeps nothing but a shortened anonymous ID.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.7.3/GameBridge.dmg" sparkle:edSignature="gzkmZ/V56ZwSZGYVJrYOE5taovGPkgH0SVRn3RxnXLkjMQXGKlQ4nGsNTp9aIB46wxIfOa/xXtB4J22FhiEkBA==" length="13586611" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.7.2</title>
       <pubDate>Wed, 04 Nov 2026 15:35:21 GMT</pubDate>
       <sparkle:version>24</sparkle:version>
