@@ -4,6 +4,15 @@
     <title>Game Bridger</title>
     <link>https://gamebridger.com/appcast.xml</link>
     <item>
+      <title>Version 0.7.4</title>
+      <pubDate>Thu, 05 Nov 2026 13:23:38 GMT</pubDate>
+      <sparkle:version>26</sparkle:version>
+      <sparkle:shortVersionString>0.7.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Fixes the window freezing for a moment when the bottom bar read the disk or an unplugged drive. Sign-in and library fixes from 0.7.2 and 0.7.3 stay.</p>]]></description>
+      <enclosure url="https://github.com/AliJamalll/game-bridge/releases/download/v0.7.4/GameBridge.dmg" sparkle:edSignature="hwzTxpms9mxqjERride/QnBW8HM9GHKyv7vIo3cqPrcFYcc5Tcmj8X+M0uvRynoCbjqFwS8i03LOt/fh1zRDDQ==" length="13589812" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 0.7.3</title>
       <pubDate>Thu, 05 Nov 2026 13:07:16 GMT</pubDate>
       <sparkle:version>25</sparkle:version>
