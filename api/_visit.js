@@ -1,4 +1,4 @@
-// Live visitor counter for the website. Anonymous: a visitor is a salted hash of their network, never an IP.
+// Live visitor counter for the website (served by api/event.js through a rewrite: Vercel Hobby allows 12 functions). Anonymous: a visitor is a salted hash of their network, never an IP.
 // POST            -> records this visitor (all time, today, and a heartbeat for "online now"); answers with the counts
 // GET             -> { online, today, total } (cached for a few seconds so many viewers cost one count)
 import { list, put } from '@vercel/blob';
